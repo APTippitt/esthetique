@@ -34,14 +34,14 @@ Error generating stack: `+e.message+`
     .ph { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
     .ph-title { font-family:${h.display}; font-size:24px; font-weight:600; color:${m.text}; letter-spacing:-.2px; }
     .ph-sub { font-family:${h.accent}; font-size:13px; color:${m.textMuted}; font-style:italic; margin-top:2px; }
-    .hero { background:linear-gradient(145deg,${m.text} 0%,#3d3228 100%); border-radius:20px; padding:20px; margin-bottom:14px; position:relative; overflow:hidden; border:1px solid #4a3d30; }
+    .hero { background:linear-gradient(145deg,#f5e6c8 0%,#e8cd96 45%,#d4aa6a 100%); border-radius:20px; padding:20px; margin-bottom:14px; position:relative; overflow:hidden; border:1px solid #d4b07a; box-shadow:0 4px 24px rgba(184,151,90,.22); }
     .hero::before { content:''; position:absolute; top:-40px; right:-30px; width:140px; height:140px; background:radial-gradient(circle,${m.gold}30 0%,transparent 70%); border-radius:50%; }
-    .hero-greet { font-family:${h.accent}; font-size:13px; color:rgba(255,255,255,.5); font-style:italic; margin-bottom:3px; position:relative; z-index:1; }
-    .hero-name { font-family:${h.display}; font-size:22px; font-weight:600; color:#fff; margin-bottom:16px; position:relative; z-index:1; }
+    .hero-greet { font-family:${h.accent}; font-size:13px; color:rgba(90,55,10,.6); font-style:italic; margin-bottom:3px; position:relative; z-index:1; }
+    .hero-name { font-family:${h.display}; font-size:22px; font-weight:600; color:#4a2c08; margin-bottom:16px; position:relative; z-index:1; }
     .hero-stats { display:flex; gap:8px; position:relative; z-index:1; }
     .hero-stat { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:10px 12px; flex:1; text-align:center; }
-    .hero-stat-num { font-family:${h.display}; font-size:20px; color:${m.goldLight}; font-weight:600; line-height:1; }
-    .hero-stat-lbl { font-size:9.5px; color:rgba(255,255,255,.45); margin-top:3px; letter-spacing:.05em; }
+    .hero-stat-num { font-family:${h.display}; font-size:20px; color:#6b3d0a; font-weight:600; line-height:1; }
+    .hero-stat-lbl { font-size:9.5px; color:rgba(90,55,10,.55); margin-top:3px; letter-spacing:.05em; }
     .quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px; }
     .quick-card { background:${m.card}; border:1px solid ${m.border}; border-radius:14px; padding:14px; box-shadow:0 1px 8px rgba(184,151,90,.06); }
     .quick-icon { font-size:20px; margin-bottom:6px; }
