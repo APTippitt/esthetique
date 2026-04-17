@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Book — esthetique Studio</title>
+<title>Book &mdash; esthetique Studio</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--gold:#b8975a;--gold-d:#8a6e3a;--gold-p:#f0e4cc;--gold-a:#d4b07a;--bg:#f7f3ee;--sf:#faf7f3;--tx:#2d2620;--mu:#9c8f82;--bd:#e8e0d5;}
+:root{--gold:#b8975a;--gd:#8a6e3a;--gp:#f0e4cc;--ga:#d4b07a;--bg:#f7f3ee;--sf:#faf7f3;--tx:#2d2620;--mu:#9c8f82;--bd:#e8e0d5;}
 html,body{width:100%;min-height:100%;background:var(--bg);font-family:'Jost',sans-serif;color:var(--tx);}
 .shell{max-width:480px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;}
 .hdr{background:linear-gradient(145deg,#f5e6c8,#e8cd96,#d4aa6a);padding:env(safe-area-inset-top,24px) 24px 20px;position:relative;overflow:hidden;}
@@ -19,71 +19,87 @@ html,body{width:100%;min-height:100%;background:var(--bg);font-family:'Jost',san
 .mb{flex:1;padding:9px 10px;border:none;background:transparent;border-radius:9px;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;color:rgba(74,44,8,.55);cursor:pointer;line-height:1.2;transition:all .2s;}
 .mb.on{background:#fff;color:#4a2c08;box-shadow:0 1px 6px rgba(0,0,0,.1);}
 .mb span{display:block;font-size:10px;font-weight:400;opacity:.7;margin-top:2px;}
-.pg{display:flex;gap:5px;margin-top:16px;}
-.pb{flex:1;height:3px;border-radius:2px;background:rgba(74,44,8,.15);transition:background .35s;}
-.pb.on{background:rgba(74,44,8,.55);}
+.steps{display:flex;align-items:flex-start;gap:0;margin-top:16px;}
+.step-dot{display:flex;flex-direction:column;align-items:center;flex:1;position:relative;}
+.step-dot::before{content:'';position:absolute;top:8px;left:50%;width:100%;height:2px;background:rgba(74,44,8,.15);z-index:0;}
+.step-dot:last-child::before{display:none;}
+.sd{width:18px;height:18px;border-radius:50%;background:rgba(74,44,8,.18);z-index:1;position:relative;display:flex;align-items:center;justify-content:center;font-size:9px;color:rgba(74,44,8,.4);transition:all .3s;font-family:'Jost',sans-serif;}
+.sd.on{background:rgba(74,44,8,.6);color:#fff;}
+.sd.done{background:rgba(74,44,8,.4);color:#fff;}
+.sl{font-size:8.5px;color:rgba(74,44,8,.45);margin-top:4px;text-align:center;letter-spacing:.02em;font-family:'Jost',sans-serif;}
+.sl.on{color:rgba(74,44,8,.75);font-weight:600;}
 .body{flex:1;padding:22px 20px 40px;}
-@keyframes fi{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
 .sh{font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:600;color:var(--tx);margin-bottom:4px;}
-.ss{font-family:'Cormorant Garamond',Georgia,serif;font-size:14px;font-style:italic;color:var(--mu);margin-bottom:20px;}
-.sc{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1.5px solid var(--bd);border-radius:16px;margin-bottom:10px;cursor:pointer;transition:border-color .15s,transform .1s;}
-.sc:hover,.sc.sel{border-color:var(--gold);transform:translateY(-1px);}
+.ss{font-family:'Cormorant Garamond',Georgia,serif;font-size:14px;font-style:italic;color:var(--mu);margin-bottom:16px;}
+.cat-tabs{display:flex;gap:7px;margin-bottom:16px;flex-wrap:wrap;}
+.ct{padding:5px 13px;border-radius:20px;border:1.5px solid var(--bd);background:#fff;font-family:'Jost',sans-serif;font-size:11.5px;font-weight:500;color:var(--mu);cursor:pointer;transition:all .15s;}
+.ct.on{border-color:var(--gold);background:var(--gp);color:var(--gd);font-weight:600;}
+.sc{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1.5px solid var(--bd);border-radius:16px;margin-bottom:9px;cursor:pointer;transition:all .18s;}
+.sc:hover,.sc.sel{border-color:var(--gold);transform:translateY(-1px);box-shadow:0 3px 14px rgba(184,151,90,.14);}
 .sc.sel{background:#fffdf8;}
-.si{width:44px;height:44px;border-radius:12px;background:var(--gold-p);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.si{width:44px;height:44px;border-radius:12px;background:var(--gp);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
 .sn{font-size:14px;font-weight:600;color:var(--tx);margin-bottom:2px;}
 .sm{font-size:11.5px;color:var(--mu);}
 .sp{font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:600;color:var(--tx);margin-left:auto;flex-shrink:0;}
-.tc{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1.5px solid var(--bd);border-radius:16px;margin-bottom:10px;cursor:pointer;transition:border-color .15s;}
-.tc:hover,.tc.sel{border-color:var(--gold);}
-.av{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;}
+.pop{display:inline-block;font-size:9px;font-weight:600;color:#4a7459;background:#e8f0eb;border-radius:8px;padding:1px 7px;margin-left:6px;vertical-align:middle;}
+.tc{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1.5px solid var(--bd);border-radius:16px;margin-bottom:9px;cursor:pointer;transition:all .18s;}
+.tc:hover,.tc.sel{border-color:var(--gold);box-shadow:0 3px 14px rgba(184,151,90,.12);}
+.av{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;}
 .tn{font-size:14px;font-weight:600;color:var(--tx);margin-bottom:2px;}
-.tr{font-family:'Cormorant Garamond',Georgia,serif;font-size:13px;font-style:italic;color:var(--mu);}
-.sb{display:inline-block;font-size:10px;font-weight:600;color:var(--gold-d);background:var(--gold-p);border-radius:20px;padding:2px 9px;margin-top:3px;}
-.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px;}
-.tp{padding:11px 4px;border-radius:12px;border:1.5px solid var(--bd);background:#fff;cursor:pointer;text-align:center;font-family:'Jost',sans-serif;font-size:13px;color:var(--tx);transition:all .15s;}
-.tp:hover,.tp.sel{border-color:var(--gold);background:var(--gold-p);color:var(--gold-d);font-weight:600;}
-.lb{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin-bottom:7px;display:block;}
-.fi{width:100%;padding:12px 14px;border:1.5px solid var(--bd);border-radius:12px;font-family:'Jost',sans-serif;font-size:14px;color:var(--tx);background:#fff;outline:none;transition:border-color .15s;margin-bottom:14px;display:block;}
+.tr{font-family:'Cormorant Garamond',Georgia,serif;font-size:12px;font-style:italic;color:var(--mu);}
+.sb2{display:inline-block;font-size:9.5px;font-weight:600;color:var(--gd);background:var(--gp);border-radius:8px;padding:2px 8px;margin-top:3px;}
+.spec-list{font-size:10.5px;color:#b0a090;margin-top:3px;}
+.time-group{margin-bottom:16px;}
+.tg-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#b8b0a6;margin-bottom:8px;font-family:'Jost',sans-serif;}
+.tg{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;}
+.tp{padding:10px 4px;border-radius:11px;border:1.5px solid var(--bd);background:#fff;cursor:pointer;text-align:center;font-family:'Jost',sans-serif;font-size:12.5px;color:var(--tx);transition:all .15s;position:relative;}
+.tp:hover,.tp.sel{border-color:var(--gold);background:var(--gp);color:var(--gd);font-weight:600;}
+.hot-dot{position:absolute;top:-4px;right:-2px;width:8px;height:8px;background:#d4956a;border-radius:50%;border:1.5px solid var(--bg);}
+.lb{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--mu);margin-bottom:7px;margin-top:14px;display:block;font-family:'Jost',sans-serif;}
+.field-wrap{margin-bottom:12px;}
+.fi{width:100%;padding:12px 14px;border:1.5px solid var(--bd);border-radius:12px;font-family:'Jost',sans-serif;font-size:14px;color:var(--tx);background:#fff;outline:none;transition:border-color .15s;display:block;}
 .fi:focus{border-color:var(--gold);}
-.fa{width:100%;padding:12px 14px;border:1.5px solid var(--bd);border-radius:12px;font-family:'Jost',sans-serif;font-size:14px;color:var(--tx);background:#fff;outline:none;resize:none;height:72px;transition:border-color .15s;margin-bottom:14px;display:block;}
+.fa{width:100%;padding:12px 14px;border:1.5px solid var(--bd);border-radius:12px;font-family:'Jost',sans-serif;font-size:14px;color:var(--tx);background:#fff;outline:none;resize:none;height:72px;transition:border-color .15s;display:block;}
 .fa:focus{border-color:var(--gold);}
-.cc{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:18px;margin-bottom:16px;}
+.char-count{font-size:10px;color:#c8b9a8;text-align:right;margin-top:4px;margin-bottom:10px;font-family:'Jost',sans-serif;}
+.cc{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:18px;margin-bottom:14px;}
 .cs{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid #f0ebe3;margin-bottom:14px;}
-.cr{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;}
+.cr{display:flex;align-items:flex-start;gap:10px;margin-bottom:11px;}
 .cr:last-child{margin:0;}
 .ci{font-size:14px;width:22px;flex-shrink:0;margin-top:2px;}
-.cl{font-size:11px;color:var(--mu);margin-bottom:2px;}
+.cl{font-size:10px;color:var(--mu);margin-bottom:2px;}
 .cv{font-size:13.5px;font-weight:500;color:var(--tx);}
-.nb{font-size:12px;color:var(--mu);line-height:1.6;padding:12px 14px;background:var(--sf);border-radius:12px;border:1px solid #f0ebe3;margin-bottom:16px;}
-.bg{width:100%;padding:14px;background:linear-gradient(135deg,var(--gold),var(--gold-a));color:#fff;border:none;border-radius:13px;font-family:'Jost',sans-serif;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 3px 14px rgba(184,151,90,.35);transition:opacity .2s,transform .15s;margin-bottom:10px;}
-.bg:hover{opacity:.92;}
+.nb{font-size:12px;color:var(--mu);line-height:1.6;padding:12px 14px;background:var(--sf);border-radius:12px;border:1px solid #f0ebe3;margin-bottom:14px;}
+.bg{width:100%;padding:14px;background:linear-gradient(135deg,var(--gold),var(--ga));color:#fff;border:none;border-radius:13px;font-family:'Jost',sans-serif;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 3px 14px rgba(184,151,90,.3);margin-bottom:10px;transition:opacity .15s,transform .1s;}
 .bg:active{transform:scale(.98);}
-.bg:disabled{opacity:.4;cursor:default;box-shadow:none;}
-.bw{background:linear-gradient(135deg,#6b5e52,#5a4e45);}
+.bg:disabled{opacity:.4;cursor:default;}
+.bw{background:linear-gradient(135deg,#6b5e52,#5a4e45);box-shadow:none;}
 .gh{width:100%;padding:11px;background:none;border:1.5px solid var(--bd);border-radius:12px;font-family:'Jost',sans-serif;font-size:13px;color:var(--mu);cursor:pointer;transition:border-color .15s;}
-.gh:hover{border-color:var(--gold);color:var(--gold-d);}
-.wb{background:linear-gradient(135deg,#f5eee3,#ede4d8);border:1px solid #d4c4a8;border-radius:16px;padding:16px 18px;margin-bottom:20px;}
-.wt{font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:600;color:#4a2c08;margin-bottom:6px;}
-.wx{font-size:12.5px;color:#7a5e3a;line-height:1.65;}
-.dg{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:18px;}
-.dp{padding:10px 2px;border-radius:10px;border:1.5px solid var(--bd);background:#fff;cursor:pointer;text-align:center;font-size:10.5px;font-weight:500;color:var(--mu);transition:all .15s;line-height:1.3;}
-.dp:hover,.dp.sel{border-color:var(--gold);background:var(--gold-p);color:var(--gold-d);}
-.ds{display:block;font-size:9px;opacity:.7;margin-bottom:1px;}
-.pg2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;}
+.gh:hover{border-color:var(--gold);color:var(--gd);}
+.cal-btn{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;padding:11px;border:1.5px dashed #c8b9a8;border-radius:12px;background:transparent;font-family:'Jost',sans-serif;font-size:13px;color:var(--mu);cursor:pointer;margin-bottom:10px;transition:border-color .15s,color .15s;}
+.cal-btn:hover{border-color:var(--gold);color:var(--gd);}
+.wb{background:linear-gradient(135deg,#f5eee3,#ede4d8);border:1px solid #d4c4a8;border-radius:16px;padding:16px 18px;margin-bottom:18px;}
+.wbt{font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:600;color:#4a2c08;margin-bottom:5px;}
+.wbx{font-size:12.5px;color:#7a5e3a;line-height:1.65;}
+.dg{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:14px;}
+.dp{padding:10px 2px;border-radius:10px;border:1.5px solid var(--bd);background:#fff;cursor:pointer;text-align:center;font-size:10.5px;color:var(--mu);line-height:1.3;font-family:'Jost',sans-serif;transition:all .15s;}
+.dp.sel{border-color:var(--gold);background:var(--gp);color:var(--gd);font-weight:600;}
+.dk{display:block;font-size:9px;opacity:.7;margin-bottom:1px;}
+.pg2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;}
 .pc{padding:12px 14px;border-radius:12px;border:1.5px solid var(--bd);background:#fff;cursor:pointer;transition:all .15s;}
-.pc:hover,.pc.sel{border-color:var(--gold);background:var(--gold-p);}
+.pc.sel{border-color:var(--gold);background:var(--gp);}
 .pl{font-size:13px;font-weight:600;color:var(--tx);margin-bottom:2px;}
 .px{font-size:11px;color:var(--mu);}
-.pc.sel .pl,.pc.sel .px{color:var(--gold-d);}
-.wn{width:56px;height:56px;border-radius:50%;background:var(--gold-p);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:600;color:var(--gold-d);margin:0 auto 14px;}
-.ok{text-align:center;padding:20px 0 40px;}
-.bl{font-size:56px;margin-bottom:14px;}
+.pc.sel .pl,.pc.sel .px{color:var(--gd);}
+.wnum{width:58px;height:58px;border-radius:50%;background:var(--gp);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;color:var(--gd);margin:0 auto 14px;}
+.ok{text-align:center;padding:20px 0 36px;}
 .ot{font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:600;color:var(--tx);margin-bottom:8px;}
-.om{font-family:'Cormorant Garamond',Georgia,serif;font-size:15.5px;color:var(--mu);line-height:1.65;margin-bottom:24px;}
-.on{color:var(--gold-d);font-style:italic;}
-.ws{background:var(--gold-p);border-radius:14px;padding:14px 16px;margin-bottom:24px;text-align:left;}
-.wst{font-size:12px;font-weight:600;color:var(--gold-d);margin-bottom:5px;}
-.wsb{font-size:12.5px;color:var(--gold-d);line-height:1.65;}
+.om{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:var(--mu);line-height:1.65;margin-bottom:20px;}
+.onh{color:var(--gd);font-style:italic;}
+.eta-badge{display:inline-block;background:#e8f0eb;color:#4a7459;font-size:11px;font-weight:600;border-radius:20px;padding:4px 14px;margin-bottom:16px;font-family:'Jost',sans-serif;}
+.ws2{background:var(--gp);border-radius:14px;padding:14px 16px;margin-bottom:20px;text-align:left;}
+.wst{font-size:11px;font-weight:600;color:var(--gd);margin-bottom:5px;}
+.wsb{font-size:12.5px;color:var(--gd);line-height:1.65;}
 </style>
 </head>
 <body>
@@ -91,251 +107,351 @@ html,body{width:100%;min-height:100%;background:var(--bg);font-family:'Jost',san
   <div class="hdr">
     <div class="logo">esthetique Studio</div>
     <div class="hed" id="hS">Book Your Visit</div>
-    <div class="sub" id="hT">Palmer, MI — Online Booking</div>
+    <div class="sub" id="hT">Jonesboro, AR &mdash; Online Booking</div>
     <div class="mt">
       <button class="mb on" id="bkBtn" onclick="setMode('book')">Book Appointment<span>Choose a date &amp; time</span></button>
       <button class="mb" id="wlBtn" onclick="setMode('waitlist')">Join Waitlist<span>Get notified of openings</span></button>
     </div>
-    <div class="pg" id="pg"></div>
+    <div class="steps" id="stepBar"></div>
   </div>
   <div class="body" id="bd"></div>
 </div>
 <script>
 var ALL_SVC=[
-  {id:'s1',name:'Hydrafacial',cat:'Facial',dur:'60 min',price:145,ico:'&#128167;',sp:['JT']},
-  {id:'s2',name:'Custom Facial',cat:'Facial',dur:'75 min',price:120,ico:'&#10024;',sp:['JT','ML']},
-  {id:'s3',name:'Signature Facial',cat:'Facial',dur:'60 min',price:130,ico:'&#127800;',sp:['ML']},
-  {id:'s4',name:'Chemical Peel',cat:'Facial',dur:'60 min',price:110,ico:'&#127807;',sp:['JT']},
-  {id:'s5',name:'Microdermabrasion',cat:'Facial',dur:'60 min',price:100,ico:'&#128142;',sp:['ML']},
-  {id:'s6',name:'Lash Lift & Tint',cat:'Lash & Brow',dur:'45 min',price:95,ico:'&#128065;',sp:['CB']},
-  {id:'s7',name:'Brow Lamination',cat:'Lash & Brow',dur:'45 min',price:75,ico:'&#127912;',sp:['CB']},
-  {id:'s8',name:'Back Facial',cat:'Body',dur:'60 min',price:90,ico:'&#127802;',sp:['ML']},
+  {id:"s1",name:"Hydrafacial",cat:"Facial",dur:"60 min",price:145,ico:"&#128167;",sp:["JT"],popular:true},
+  {id:"s2",name:"Custom Facial",cat:"Facial",dur:"75 min",price:120,ico:"&#10024;",sp:["JT","ML"],popular:false},
+  {id:"s3",name:"Signature Facial",cat:"Facial",dur:"60 min",price:130,ico:"&#127800;",sp:["ML"],popular:true},
+  {id:"s4",name:"Chemical Peel",cat:"Facial",dur:"60 min",price:110,ico:"&#127807;",sp:["JT"],popular:false},
+  {id:"s5",name:"Microdermabrasion",cat:"Facial",dur:"60 min",price:100,ico:"&#128142;",sp:["ML"],popular:false},
+  {id:"s6",name:"Lash Lift and Tint",cat:"Lash and Brow",dur:"45 min",price:95,ico:"&#128065;",sp:["CB"],popular:true},
+  {id:"s7",name:"Brow Lamination",cat:"Lash and Brow",dur:"45 min",price:75,ico:"&#127912;",sp:["CB"],popular:false},
+  {id:"s8",name:"Back Facial",cat:"Body",dur:"60 min",price:90,ico:"&#127802;",sp:["ML"],popular:false}
 ];
 var ALL_STF=[
-  {id:'JT',name:'Jadyn Tippitt',role:'Lead Esthetician & Owner',color:'#b8975a',init:'JT'},
-  {id:'ML',name:'Megan Lamb',role:'Esthetician & Owner',color:'#7a9e87',init:'ML'},
-  {id:'CB',name:'Cassandra Bastian',role:'Esthetician',color:'#a898c8',init:'CB'},
+  {id:"JT",name:"Jadyn Tippitt",role:"Lead Esthetician and Owner",color:"#b8975a",init:"JT",specials:["Hydrafacial","Custom Facial","Chemical Peel"]},
+  {id:"ML",name:"Megan Lamb",role:"Esthetician and Owner",color:"#7a9e87",init:"ML",specials:["Custom Facial","Signature Facial","Back Facial"]},
+  {id:"CB",name:"Cassandra Bastian",role:"Esthetician",color:"#a898c8",init:"CB",specials:["Lash Lift and Tint","Brow Lamination"]}
 ];
-var DEF_TIMES=['9:00 AM','9:30 AM','10:00 AM','10:30 AM','11:00 AM','11:30 AM','1:00 PM','1:30 PM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM'];
-var DAYS=[{l:'Monday',s:'Mon',k:'M'},{l:'Tuesday',s:'Tue',k:'T'},{l:'Wednesday',s:'Wed',k:'W'},{l:'Thursday',s:'Thu',k:'T'},{l:'Friday',s:'Fri',k:'F'},{l:'Saturday',s:'Sat',k:'Sa'},{l:'Sunday',s:'Sun',k:'Su'}];
+var AM_SLOTS=["9:00 AM","9:30 AM","10:00 AM","10:30 AM","11:00 AM","11:30 AM"];
+var PM_SLOTS=["1:00 PM","1:30 PM","2:00 PM","2:30 PM","3:00 PM","3:30 PM","4:00 PM"];
+var HOT_SLOTS=["10:00 AM","2:00 PM","11:00 AM"];
+var DAYS=[{l:"Monday",s:"Mon",k:"M"},{l:"Tuesday",s:"Tue",k:"T"},{l:"Wednesday",s:"Wed",k:"W"},{l:"Thursday",s:"Thu",k:"T"},{l:"Friday",s:"Fri",k:"F"},{l:"Saturday",s:"Sat",k:"Sa"},{l:"Sunday",s:"Sun",k:"Su"}];
+var BSTEPS=["Service","Who","Time","Info","Confirm"];
+var WSTEPS=["Service","Availability","Contact","Review"];
+var ETA_MAP={asap:"Usually within 1-2 days",week:"Within this week",month:"Within 30 days",flex:"We'll let you know whenever"};
 
-// Load config from shared localStorage (written by the staff app)
-var CFG={enabled:true,studioName:'esthetique Studio',tagline:'Palmer, MI — Online Booking',welcomeMsg:'Book Your Visit',cancellationNote:'24-hour cancellation policy applies.',timeSlots:DEF_TIMES,enabledServices:['s1','s2','s3','s4','s5','s6','s7','s8'],enabledStaff:['JT','ML','CB']};
-try{var _c=localStorage.getItem('esth-public-config');if(_c){var _p=JSON.parse(_c);Object.assign(CFG,_p);}}catch(e){}
-// Sync service prices from staff app
-try{var _sv=localStorage.getItem('esth-services');if(_sv){JSON.parse(_sv).forEach(function(s){var m=ALL_SVC.find(function(x){return x.id===s.id;});if(m&&s.price){m.price=s.price;m.name=s.name;}});}}catch(e){}
+var CFG={enabled:true,studioName:"esthetique Studio",tagline:"Jonesboro, AR",welcomeMsg:"Book Your Visit",cancellationNote:"24-hour cancellation notice required. Late cancellations may incur a fee.",timeSlots:AM_SLOTS.concat(PM_SLOTS),enabledServices:["s1","s2","s3","s4","s5","s6","s7","s8"],enabledStaff:["JT","ML","CB"]};
+try{var _c=localStorage.getItem("esth-public-config");if(_c){var _p=JSON.parse(_c);for(var k in _p){if(_p.hasOwnProperty(k))CFG[k]=_p[k];}}}catch(e){}
+if(!Array.isArray(CFG.enabledServices))CFG.enabledServices=ALL_SVC.map(function(s){return s.id;});
+if(!Array.isArray(CFG.enabledStaff))CFG.enabledStaff=ALL_STF.map(function(m){return m.id;});
+try{var _sv=localStorage.getItem("esth-services");if(_sv){JSON.parse(_sv).forEach(function(s){var m=ALL_SVC.find(function(x){return x.id===s.id;});if(m&&s.price){m.price=s.price;m.name=s.name;}});}}catch(e){}
 
 var SVC=ALL_SVC.filter(function(s){return CFG.enabledServices.indexOf(s.id)>=0;});
 var STF=ALL_STF.filter(function(m){return CFG.enabledStaff.indexOf(m.id)>=0;});
-var TIMES=CFG.timeSlots&&CFG.timeSlots.length?CFG.timeSlots:DEF_TIMES;
 
-var mode='book';
-var B={step:0,svc:null,stf:null,date:'',time:null,name:'',phone:'',email:'',notes:''};
-var W={step:0,svc:null,stf:null,pri:'asap',days:[],name:'',phone:'',email:'',notes:''};
+var mode="book";
+var activeCat="All";
+var B={step:0,svc:null,stf:null,date:"",time:null,name:"",phone:"",email:"",notes:""};
+var W={step:0,svc:null,stf:null,pri:"asap",days:[],name:"",phone:"",email:"",notes:""};
 
-function today(){return new Date().toISOString().split('T')[0];}
-function fmtD(d){try{return new Date(d+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});}catch(e){return d;}}
+function today(){return new Date().toISOString().split("T")[0];}
+function fmtD(d){try{return new Date(d+"T12:00:00").toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"});}catch(e){return d;}}
+function el(id){return document.getElementById(id);}
+function mk(tag,cls,html){var d=document.createElement(tag);if(cls)d.className=cls;if(html)d.innerHTML=html;return d;}
+function mkBtn(cls,txt,fn){var b=mk("button",cls,txt);if(fn)b.onclick=fn;return b;}
+function ucats(list){var s={},r=[];list.forEach(function(x){if(!s[x.cat]){s[x.cat]=1;r.push(x.cat);}});return r;}
+
+function fmtPhone(v){
+  var d=v.replace(/\D/g,"").substring(0,10);
+  if(d.length>=10)return"("+d.slice(0,3)+") "+d.slice(3,6)+"-"+d.slice(6,10);
+  if(d.length>=7)return"("+d.slice(0,3)+") "+d.slice(3,6)+"-"+d.slice(6);
+  if(d.length>=4)return"("+d.slice(0,3)+") "+d.slice(3);
+  return d;
+}
+
+function toHHMM(t,addMin){
+  addMin=addMin||0;
+  var m=t.match(/(\d+):(\d+) (AM|PM)/);
+  if(!m)return"090000";
+  var h=parseInt(m[1]),mn=parseInt(m[2]),ap=m[3];
+  if(ap==="PM"&&h!==12)h+=12;if(ap==="AM"&&h===12)h=0;
+  mn+=addMin;if(mn>=60){h++;mn-=60;}
+  return(h<10?"0"+h:h)+(mn<10?"0"+mn:mn)+"00";
+}
 
 function setMode(m){
-  mode=m;
-  document.getElementById('bkBtn').className='mb'+(m==='book'?' on':'');
-  document.getElementById('wlBtn').className='mb'+(m==='waitlist'?' on':'');
-  B={step:0,svc:null,stf:null,date:'',time:null,name:'',phone:'',email:'',notes:''};
-  W={step:0,svc:null,stf:null,pri:'asap',days:[],name:'',phone:'',email:'',notes:''};
+  mode=m;activeCat="All";
+  el("bkBtn").className="mb"+(m==="book"?" on":"");
+  el("wlBtn").className="mb"+(m==="waitlist"?" on":"");
+  B={step:0,svc:null,stf:null,date:"",time:null,name:"",phone:"",email:"",notes:""};
+  W={step:0,svc:null,stf:null,pri:"asap",days:[],name:"",phone:"",email:"",notes:""};
   fade(render);
 }
 
-function setPg(tot,done){
-  var p=document.getElementById('pg'),h='';
-  for(var i=0;i<tot;i++) h+='<div class="pb'+(i<done?' on':'')+'"></div>';
-  p.innerHTML=h;
+function drawSteps(){
+  var steps=mode==="book"?BSTEPS:WSTEPS;
+  var cur=mode==="book"?B.step:W.step;
+  var sb=el("stepBar");sb.innerHTML="";
+  steps.forEach(function(s,i){
+    var dot=mk("div","step-dot");
+    var sd=mk("div","sd"+(i<cur?" done":i===cur?" on":""),i<cur?"&#10003;":(i+1)+"");
+    var sl=mk("div","sl"+(i===cur?" on":""),s);
+    dot.appendChild(sd);dot.appendChild(sl);sb.appendChild(dot);
+  });
 }
 
 function fade(fn){
-  var b=document.getElementById('bd');
-  b.style.cssText='opacity:0;transform:translateY(8px);transition:opacity .18s,transform .18s';
-  setTimeout(function(){fn();b.style.cssText='opacity:1;transform:translateY(0);transition:opacity .22s,transform .22s';},180);
+  var b=el("bd");
+  b.style.cssText="opacity:0;transform:translateY(6px);transition:opacity .16s,transform .16s";
+  setTimeout(function(){fn();b.style.cssText="opacity:1;transform:translateY(0);transition:opacity .2s,transform .2s";},160);
 }
 
-function ucats(list){var seen={},r=[];list.forEach(function(s){if(!seen[s.cat]){seen[s.cat]=1;r.push(s.cat);}});return r;}
-
-function sCards(list,selId,fn){
-  var h='';
-  list.forEach(function(s){
-    h+='<div class="sc'+(selId===s.id?' sel':'')+'" onclick="'+fn+'(\''+s.id+'\')">'+
-      '<div class="si">'+s.ico+'</div>'+
-      '<div style="flex:1"><div class="sn">'+s.name+'</div><div class="sm">'+s.dur+' &mdash; '+s.cat+'</div></div>'+
-      '<div class="sp">$'+s.price+'</div></div>';
+function mkCatTabs(filtFn){
+  var tabs=mk("div","cat-tabs");
+  ["All"].concat(ucats(SVC)).forEach(function(cat){
+    var t=mk("div","ct"+(activeCat===cat?" on":""),cat);
+    t.onclick=function(){activeCat=cat;filtFn();};
+    tabs.appendChild(t);
   });
-  return h;
+  return tabs;
 }
 
-function stCards(selId,fn,svc){
-  var h='<div class="tc'+(selId===null?' sel':'')+'" onclick="'+fn+'(null)">'+
-    '<div class="av" style="background:var(--gold-p);color:var(--gold-d);font-size:18px">&#127922;</div>'+
-    '<div><div class="tn">No preference</div><div class="tr">First available esthetician</div></div></div>';
+function mkSvcCards(list,selId,fn){
+  var f=document.createDocumentFragment();
+  list.forEach(function(s){
+    var d=mk("div","sc"+(selId===s.id?" sel":""));
+    var pop=s.popular?"<span class='pop'>Popular</span>":"";
+    d.innerHTML="<div class='si'>"+s.ico+"</div><div style='flex:1'><div class='sn'>"+s.name+pop+"</div><div class='sm'>"+s.dur+"</div></div><div class='sp'>$"+s.price+"</div>";
+    d.onclick=function(){fn(s.id);};f.appendChild(d);
+  });
+  return f;
+}
+
+function mkStfCards(selId,fn,svc){
+  var f=document.createDocumentFragment();
+  var n=mk("div","tc"+(selId===null?" sel":""));
+  n.innerHTML="<div class='av' style='background:var(--gp);color:var(--gd);font-size:18px'>&#127922;</div><div><div class='tn'>No preference</div><div class='tr'>First available esthetician</div></div>";
+  n.onclick=function(){fn(null);};f.appendChild(n);
   STF.forEach(function(m){
     var sp=svc&&svc.sp.indexOf(m.id)>=0;
-    h+='<div class="tc'+(selId===m.id?' sel':'')+'" onclick="'+fn+'(\''+m.id+'\')">'+
-      '<div class="av" style="background:'+m.color+'">'+m.init+'</div>'+
-      '<div><div class="tn">'+m.name+'</div>'+
-      (sp?'<div class="sb">Specializes in this</div>':'<div class="tr">'+m.role+'</div>')+
-      '</div></div>';
+    var d=mk("div","tc"+(selId===m.id?" sel":""));
+    d.innerHTML="<div class='av' style='background:"+m.color+"'>"+m.init+"</div><div style='flex:1'><div class='tn'>"+m.name+"</div>"+(sp?"<div class='sb2'>&#10022; Specializes in this</div>":"<div class='tr'>"+m.role+"</div>")+"<div class='spec-list'>"+m.specials.join(" &middot; ")+"</div></div>";
+    d.onclick=function(){fn(m.id);};f.appendChild(d);
   });
-  return h;
+  return f;
+}
+
+function mkTimeGroup(label,slots){
+  var g=mk("div","time-group");
+  g.appendChild(mk("div","tg-label",label));
+  var tg=mk("div","tg");
+  slots.forEach(function(t){
+    var tp=mk("div","tp"+(B.time===t?" sel":""),t);
+    if(HOT_SLOTS.indexOf(t)>=0){tp.appendChild(mk("div","hot-dot"));}
+    tp.onclick=function(){bTime(t);};tg.appendChild(tp);
+  });
+  g.appendChild(tg);return g;
 }
 
 // ── BOOKING ──────────────────────────────────────────────────────────────────
 function renderBook(){
-  setPg(5,B.step+1);
-  var b=document.getElementById('bd'),h='';
+  drawSteps();
+  var bd=el("bd");bd.innerHTML="";
+
   if(B.step===0){
-    h='<div class="sh">What can we do for you?</div><div class="ss">Select a service to get started</div>';
-    ucats(SVC).forEach(function(cat,ci){
-      h+='<label class="lb" style="margin-top:'+(ci?'16px':'0')+'">'+cat+'</label>';
-      h+=sCards(SVC.filter(function(s){return s.cat===cat;}),B.svc&&B.svc.id,'bSvc');
-    });
+    bd.appendChild(mk("div","sh","What can we do for you?"));
+    bd.appendChild(mk("div","ss","Select a service to get started"));
+    bd.appendChild(mkCatTabs(renderBook));
+    var filtered=activeCat==="All"?SVC:SVC.filter(function(s){return s.cat===activeCat;});
+    bd.appendChild(mkSvcCards(filtered,B.svc&&B.svc.id,bSvc));
+
   } else if(B.step===1){
-    h='<div class="sh">Your esthetician</div><div class="ss">Or let us match you with first available</div>';
-    h+=stCards(B.stf&&B.stf.id,'bStf',B.svc);
-    h+='<div style="height:12px"></div><button class="gh" onclick="bBk()">&#8592; Back</button>';
+    bd.appendChild(mk("div","sh","Your esthetician"));
+    bd.appendChild(mk("div","ss","See who specializes in "+B.svc.name));
+    bd.appendChild(mkStfCards(B.stf&&B.stf.id,bStf,B.svc));
+    bd.appendChild(mk("div",null,"<div style='height:10px'></div>"));
+    bd.appendChild(mkBtn("gh","&#8592; Back",bBk));
+
   } else if(B.step===2){
-    h='<div class="sh">Date &amp; time</div><div class="ss">Pick your preferred slot</div>'+
-      '<label class="lb">Date</label>'+
-      '<input type="date" class="fi" value="'+(B.date||today())+'" min="'+today()+'" oninput="B.date=this.value">'+
-      '<label class="lb">Available times</label><div class="tg">';
-    TIMES.forEach(function(t){h+='<div class="tp'+(B.time===t?' sel':'')+'" onclick="bTime(\''+t+'\')">'+t+'</div>';});
-    h+='</div><button class="bg" id="tbtn" '+(B.time?'':'disabled')+' onclick="if(B.time)bNx()">Continue &#8594;</button>'+
-      '<button class="gh" onclick="bBk()">&#8592; Back</button>';
+    bd.appendChild(mk("div","sh","Date &amp; time"));
+    bd.appendChild(mk("div","ss","Pick your preferred slot"));
+    var di=document.createElement("input");di.type="date";di.className="fi";di.value=B.date||today();di.min=today();di.style.marginBottom="14px";
+    di.oninput=function(){B.date=this.value;};bd.appendChild(di);
+    var custTimes=CFG.timeSlots||AM_SLOTS.concat(PM_SLOTS);
+    var amSlots=custTimes.filter(function(t){return t.indexOf("AM")>=0;});
+    var pmSlots=custTimes.filter(function(t){return t.indexOf("PM")>=0;});
+    if(amSlots.length) bd.appendChild(mkTimeGroup("&#9728; Morning",amSlots));
+    if(pmSlots.length) bd.appendChild(mkTimeGroup("&#127804; Afternoon",pmSlots));
+    bd.appendChild(mk("div",null,"<div style='font-size:10.5px;color:#c8b9a8;margin-bottom:14px'>&#128293; Dot = popular time</div>"));
+    var tb=mkBtn("bg","Continue &#8594;",bNx);tb.id="tbtn";tb.disabled=!B.time;bd.appendChild(tb);
+    bd.appendChild(mkBtn("gh","&#8592; Back",bBk));
+
   } else if(B.step===3){
-    h='<div class="sh">Your information</div><div class="ss">We\'ll send your confirmation here</div>'+
-      '<label class="lb">Full Name</label><input class="fi" placeholder="Jane Doe" value="'+B.name+'" oninput="B.name=this.value;chkB()">'+
-      '<label class="lb">Phone</label><input class="fi" type="tel" placeholder="(555) 555-0100" value="'+B.phone+'" oninput="B.phone=this.value;chkB()">'+
-      '<label class="lb">Email</label><input class="fi" type="email" placeholder="jane@email.com" value="'+B.email+'" oninput="B.email=this.value;chkB()">'+
-      '<label class="lb">Notes (optional)</label><textarea class="fa" placeholder="Allergies, skin concerns..." oninput="B.notes=this.value">'+B.notes+'</textarea>'+
-      '<button class="bg" id="ibtn" '+(B.name&&(B.phone||B.email)?'':'disabled')+' onclick="if(B.name&&(B.phone||B.email))bNx()">Review Booking &#8594;</button>'+
-      '<button class="gh" onclick="bBk()">&#8592; Back</button>';
+    bd.appendChild(mk("div","sh","Your information"));
+    bd.appendChild(mk("div","ss","We will send a confirmation your way"));
+    [["Full Name","text","Jane Doe","name"],["Phone","tel","(555) 555-0100","phone"],["Email","email","jane@email.com","email"]].forEach(function(x){
+      var fw=mk("div","field-wrap");
+      var lb=mk("label","lb",x[0]);lb.style.marginTop="0";fw.appendChild(lb);
+      var inp=document.createElement("input");inp.className="fi";inp.type=x[1];inp.placeholder=x[2];inp.value=B[x[3]];
+      inp.oninput=function(){if(x[3]==="phone")this.value=fmtPhone(this.value);B[x[3]]=this.value;chkB();};
+      fw.appendChild(inp);bd.appendChild(fw);
+    });
+    var lb2=mk("label","lb","Notes (optional)");lb2.style.marginTop="4px";bd.appendChild(lb2);
+    var ta=document.createElement("textarea");ta.className="fa";ta.placeholder="Allergies, skin sensitivities, anything we should know...";ta.value=B.notes;ta.maxLength=200;
+    var cc=mk("div","char-count","0 / 200");
+    ta.oninput=function(){B.notes=this.value;cc.textContent=this.value.length+" / 200";};
+    bd.appendChild(ta);bd.appendChild(cc);
+    var ib=mkBtn("bg","Review Booking &#8594;",function(){if(B.name&&(B.phone||B.email))bNx();});ib.id="ibtn";ib.disabled=!(B.name&&(B.phone||B.email));bd.appendChild(ib);
+    bd.appendChild(mkBtn("gh","&#8592; Back",bBk));
+
   } else if(B.step===4){
-    h='<div class="sh">Confirm your booking</div><div style="height:10px"></div>'+
-      '<div class="cc"><div class="cs">'+
-        '<div style="width:42px;height:42px;border-radius:12px;background:var(--gold-p);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">'+B.svc.ico+'</div>'+
-        '<div><div class="cv">'+B.svc.name+'</div><div class="cl">'+B.svc.dur+' &mdash; $'+B.svc.price+'</div></div></div>'+
-        '<div class="cr"><div class="ci">&#128197;</div><div><div class="cl">Date &amp; Time</div><div class="cv">'+fmtD(B.date)+' at '+B.time+'</div></div></div>'+
-        '<div class="cr"><div class="ci">&#9997;</div><div><div class="cl">Esthetician</div><div class="cv">'+(B.stf?B.stf.name:'First available')+'</div></div></div>'+
-        '<div class="cr"><div class="ci">&#128100;</div><div><div class="cl">Name</div><div class="cv">'+B.name+'</div></div></div>'+
-        '<div class="cr"><div class="ci">&#128222;</div><div><div class="cl">Contact</div><div class="cv">'+(B.phone||B.email)+'</div></div></div>'+
-      '</div>'+
-      '<div class="nb">'+CFG.cancellationNote+'</div>'+
-      '<button class="bg" onclick="bSub()">Request Appointment &#10003;</button>'+
-      '<button class="gh" onclick="bBk()">&#8592; Edit info</button>';
+    bd.appendChild(mk("div","sh","Confirm your booking"));
+    bd.appendChild(mk("div",null,"<div style='height:8px'></div>"));
+    var card=mk("div","cc");
+    var cs=mk("div","cs");
+    cs.innerHTML="<div style='width:42px;height:42px;border-radius:12px;background:var(--gp);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0'>"+B.svc.ico+"</div><div><div class='cv' style='font-size:14px'>"+B.svc.name+"</div><div class='cl'>"+B.svc.dur+" &mdash; $"+B.svc.price+"</div></div>";
+    card.appendChild(cs);
+    [{ico:"&#128197;",l:"Date &amp; Time",v:fmtD(B.date)+" at "+B.time},{ico:"&#9997;",l:"Esthetician",v:B.stf?B.stf.name:"First available"},{ico:"&#128100;",l:"Name",v:B.name},{ico:"&#128222;",l:"Contact",v:B.phone||B.email}].forEach(function(r){
+      var cr=mk("div","cr");cr.innerHTML="<div class='ci'>"+r.ico+"</div><div><div class='cl'>"+r.l+"</div><div class='cv'>"+r.v+"</div></div>";card.appendChild(cr);
+    });
+    bd.appendChild(card);
+    bd.appendChild(mk("div","nb",CFG.cancellationNote));
+    bd.appendChild(mkBtn("bg","Request Appointment &#10003;",bSub));
+    bd.appendChild(mkBtn("gh","&#8592; Edit info",bBk));
+
   } else {
-    var fn=B.name.split(' ')[0]||'there';
-    h='<div class="ok"><div class="bl">&#127800;</div>'+
-      '<div class="ot">You\'re all set, <span class="on">'+fn+'</span>!</div>'+
-      '<div class="om">Your request for <strong>'+B.svc.name+'</strong> on '+fmtD(B.date)+' at '+B.time+' has been sent. We\'ll confirm within 24 hours.</div>'+
-      '<button class="bg" onclick="setMode(\'book\')">Book Another Appointment</button>'+
-      '<div style="margin-top:14px;font-family:\'Cormorant Garamond\',Georgia,serif;font-size:14px;font-style:italic;color:var(--mu);text-align:center">We can\'t wait to see you &#10024;</div></div>';
+    var fn=B.name.split(" ")[0]||"there";
+    var ok=mk("div","ok");
+    ok.innerHTML="<div style='font-size:52px;margin-bottom:14px'>&#127800;</div><div class='ot'>You're all set, <span class='onh'>"+fn+"</span>!</div><div class='om'>Your request for <strong>"+B.svc.name+"</strong> on "+fmtD(B.date)+" at "+B.time+" has been sent. We will confirm within 24 hours by "+(B.phone?"text":"email")+".</div>";
+    var calBtn=mk("button","cal-btn","&#128197;  Add to Calendar");
+    calBtn.onclick=function(){
+      var dt=(B.date||today()).replace(/-/g,"");
+      var url="https://calendar.google.com/calendar/r/eventedit?text=esthetique+"+encodeURIComponent(B.svc.name)+"&dates="+dt+"T"+toHHMM(B.time)+"/"+dt+"T"+toHHMM(B.time,60)+"&details=Appointment+at+esthetique+Studio,+Jonesboro,+AR";
+      window.open(url,"_blank");
+    };
+    ok.appendChild(calBtn);
+    ok.appendChild(mkBtn("bg","Book Another Appointment",function(){setMode("book");}));
+    bd.appendChild(ok);
   }
-  b.innerHTML=h;
 }
 
-function bSvc(id){B.svc=SVC.find(function(s){return s.id===id;});B.step=1;fade(render);}
+function bSvc(id){B.svc=SVC.find(function(s){return s.id===id;});B.step=1;activeCat="All";fade(render);}
 function bStf(id){B.stf=id?STF.find(function(m){return m.id===id;}):null;B.date=B.date||today();B.step=2;fade(render);}
-function bTime(t){B.time=t;var btn=document.getElementById('tbtn');if(btn)btn.disabled=false;renderBook();}
+function bTime(t){B.time=t;var tb=el("tbtn");if(tb)tb.disabled=false;renderBook();}
 function bNx(){B.step++;fade(render);}
-function bBk(){B.step=Math.max(0,B.step-1);fade(render);}
+function bBk(){B.step=Math.max(0,B.step-1);activeCat="All";fade(render);}
 function bSub(){B.step=5;fade(render);}
-function chkB(){var b=document.getElementById('ibtn');if(b)b.disabled=!(B.name&&(B.phone||B.email));}
+function chkB(){var b=el("ibtn");if(b)b.disabled=!(B.name&&(B.phone||B.email));}
 
-// ── WAITLIST ─────────────────────────────────────────────────────────────────
+// ── WAITLIST ──────────────────────────────────────────────────────────────────
 function renderWL(){
-  setPg(4,W.step+1);
-  var b=document.getElementById('bd'),h='';
+  drawSteps();
+  var bd=el("bd");bd.innerHTML="";
+  var dayStr=W.days.length?W.days.map(function(d){return d.substring(0,3);}).join(", "):"Any day";
+
   if(W.step===0){
-    h='<div class="sh">Join the waitlist</div><div class="ss">Get notified when a spot opens</div>'+
-      '<div class="wb"><div class="wt">&#128203; How it works</div><div class="wx">When an appointment is cancelled we reach out to everyone on the waitlist for that service. First to confirm gets the spot!</div></div>'+
-      '<label class="lb">Which service?</label>';
-    ucats(SVC).forEach(function(cat,ci){
-      h+='<label class="lb" style="margin-top:'+(ci?'14px':'0')+'">'+cat+'</label>';
-      h+=sCards(SVC.filter(function(s){return s.cat===cat;}),W.svc&&W.svc.id,'wSvc');
-    });
+    bd.appendChild(mk("div","sh","Join the waitlist"));
+    bd.appendChild(mk("div","ss","Get notified the moment a spot opens"));
+    var wb=mk("div","wb");wb.innerHTML="<div class='wbt'>&#128203; How it works</div><div class='wbx'>When an appointment is cancelled we immediately reach out to everyone on the waitlist. First to confirm claims the spot!</div>";
+    bd.appendChild(wb);
+    bd.appendChild(mkCatTabs(renderWL));
+    var filtered2=activeCat==="All"?SVC:SVC.filter(function(s){return s.cat===activeCat;});
+    bd.appendChild(mkSvcCards(filtered2,W.svc&&W.svc.id,wSvc));
+
   } else if(W.step===1){
-    h='<div class="sh">Your availability</div><div class="ss">Helps us match you to the right opening</div>'+
-      '<label class="lb">Which days work?</label><div class="dg">';
+    bd.appendChild(mk("div","sh","Your availability"));
+    bd.appendChild(mk("div","ss","Helps us match you to the right opening"));
+    var lb3=mk("label","lb","Which days work?");lb3.style.marginTop="0";bd.appendChild(lb3);
+    var dg=mk("div","dg");
     DAYS.forEach(function(d){
-      var sel=W.days.indexOf(d.l)>=0;
-      h+='<div class="dp'+(sel?' sel':'')+'" onclick="wDay(\''+d.l+'\')"><span class="ds">'+d.k+'</span>'+d.s+'</div>';
+      var dp=mk("div","dp"+(W.days.indexOf(d.l)>=0?" sel":""));
+      dp.innerHTML="<span class='dk'>"+d.k+"</span>"+d.s;
+      dp.onclick=(function(day){return function(){wDay(day);};})(d.l);
+      dg.appendChild(dp);
     });
-    h+='</div><label class="lb">Preferred esthetician</label>';
-    h+=stCards(W.stf&&W.stf.id,'wStf',W.svc);
-    h+='<label class="lb" style="margin-top:18px">How soon?</label><div class="pg2">';
-    [['asap','ASAP','First available'],['week','This week','Next 7 days'],['month','This month','Next 30 days'],['flex','Flexible','No rush']].forEach(function(p){
-      h+='<div class="pc'+(W.pri===p[0]?' sel':'')+'" onclick="wPri(\''+p[0]+'\')"><div class="pl">'+p[1]+'</div><div class="px">'+p[2]+'</div></div>';
+    bd.appendChild(dg);
+    var lb4=mk("label","lb","Preferred esthetician");lb4.style.marginTop="0";bd.appendChild(lb4);
+    bd.appendChild(mkStfCards(W.stf&&W.stf.id,wStf,W.svc));
+    var lb5=mk("label","lb","How soon?");lb5.style.marginTop="12px";bd.appendChild(lb5);
+    var pg2=mk("div","pg2");
+    [["asap","ASAP","First available opening"],["week","This week","Within 7 days"],["month","This month","Within 30 days"],["flex","Flexible","No rush"]].forEach(function(p){
+      var pc=mk("div","pc"+(W.pri===p[0]?" sel":""));
+      pc.innerHTML="<div class='pl'>"+p[1]+"</div><div class='px'>"+p[2]+"</div>";
+      pc.onclick=(function(pri){return function(){wPri(pri);};})(p[0]);
+      pg2.appendChild(pc);
     });
-    h+='</div><button class="bg bw" onclick="wNx()">Continue &#8594;</button><button class="gh" onclick="wBk()">&#8592; Back</button>';
+    bd.appendChild(pg2);
+    bd.appendChild(mkBtn("bg bw","Continue &#8594;",wNx));
+    bd.appendChild(mkBtn("gh","&#8592; Back",wBk));
+
   } else if(W.step===2){
-    h='<div class="sh">Contact info</div><div class="ss">We\'ll reach out the moment a spot opens</div>'+
-      '<label class="lb">Full Name</label><input class="fi" placeholder="Jane Doe" value="'+W.name+'" oninput="W.name=this.value;chkW()">'+
-      '<label class="lb">Phone (recommended)</label><input class="fi" type="tel" placeholder="(555) 555-0100" value="'+W.phone+'" oninput="W.phone=this.value;chkW()">'+
-      '<label class="lb">Email</label><input class="fi" type="email" placeholder="jane@email.com" value="'+W.email+'" oninput="W.email=this.value;chkW()">'+
-      '<label class="lb">Anything we should know?</label><textarea class="fa" placeholder="Preferred time of day, concerns..." oninput="W.notes=this.value">'+W.notes+'</textarea>'+
-      '<div class="nb">&#128241; We\'ll text or email when an opening matches your preferences. First to confirm gets the spot!</div>'+
-      '<button class="bg bw" id="wibtn" '+(W.name&&(W.phone||W.email)?'':'disabled')+' onclick="if(W.name&&(W.phone||W.email))wNx()">Review &amp; Join &#8594;</button>'+
-      '<button class="gh" onclick="wBk()">&#8592; Back</button>';
+    bd.appendChild(mk("div","sh","Contact info"));
+    bd.appendChild(mk("div","ss","We will reach out the moment a spot opens"));
+    [["Full Name","text","Jane Doe","name"],["Phone (recommended)","tel","(555) 555-0100","phone"],["Email","email","jane@email.com","email"]].forEach(function(x){
+      var fw=mk("div","field-wrap");
+      var lb=mk("label","lb",x[0]);lb.style.marginTop="0";fw.appendChild(lb);
+      var inp=document.createElement("input");inp.className="fi";inp.type=x[1];inp.placeholder=x[2];inp.value=W[x[3]];
+      inp.oninput=function(){if(x[3]==="phone")this.value=fmtPhone(this.value);W[x[3]]=this.value;chkW();};
+      fw.appendChild(inp);bd.appendChild(fw);
+    });
+    var lb6=mk("label","lb","Anything we should know?");lb6.style.marginTop="4px";bd.appendChild(lb6);
+    var ta=document.createElement("textarea");ta.className="fa";ta.placeholder="Preferred time of day, skin concerns...";ta.value=W.notes;ta.maxLength=200;
+    var cc2=mk("div","char-count","0 / 200");
+    ta.oninput=function(){W.notes=this.value;cc2.textContent=this.value.length+" / 200";};
+    bd.appendChild(ta);bd.appendChild(cc2);
+    bd.appendChild(mk("div","nb","&#128241; We will text or email you the moment a spot opens. First to reply gets it!"));
+    var wb2=mkBtn("bg bw","Review &amp; Join &#8594;",function(){if(W.name&&(W.phone||W.email))wNx();});wb2.id="wibtn";wb2.disabled=!(W.name&&(W.phone||W.email));bd.appendChild(wb2);
+    bd.appendChild(mkBtn("gh","&#8592; Back",wBk));
+
   } else if(W.step===3){
-    var ds=W.days.length?W.days.map(function(d){return d.substring(0,3);}).join(', '):'Any day';
-    var ps={asap:'ASAP',week:'This week',month:'This month',flex:'Flexible'};
-    h='<div class="sh">Review your request</div><div style="height:10px"></div>'+
-      '<div class="cc"><div class="cs">'+
-        '<div style="width:42px;height:42px;border-radius:12px;background:var(--gold-p);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">'+W.svc.ico+'</div>'+
-        '<div><div class="cv">'+W.svc.name+'</div><div class="cl">'+W.svc.dur+' &mdash; $'+W.svc.price+'</div></div></div>'+
-        '<div class="cr"><div class="ci">&#128197;</div><div><div class="cl">Available days</div><div class="cv">'+ds+'</div></div></div>'+
-        '<div class="cr"><div class="ci">&#9997;</div><div><div class="cl">Preference</div><div class="cv">'+(W.stf?W.stf.name:'Any esthetician')+'</div></div></div>'+
-        '<div class="cr"><div class="ci">&#9889;</div><div><div class="cl">Priority</div><div class="cv">'+ps[W.pri]+'</div></div></div>'+
-        '<div class="cr"><div class="ci">&#128100;</div><div><div class="cl">Name</div><div class="cv">'+W.name+'</div></div></div>'+
-        '<div class="cr"><div class="ci">&#128222;</div><div><div class="cl">Contact</div><div class="cv">'+(W.phone||W.email)+'</div></div></div>'+
-      '</div>'+
-      '<div class="nb">When a cancellation matches your preferences we\'ll contact you right away. Reply any time to update or remove your spot.</div>'+
-      '<button class="bg bw" onclick="wSub()">Join Waitlist &#10003;</button><button class="gh" onclick="wBk()">&#8592; Edit</button>';
+    var ps={asap:"ASAP",week:"This week",month:"This month",flex:"Flexible"};
+    bd.appendChild(mk("div","sh","Review your request"));
+    bd.appendChild(mk("div",null,"<div style='height:8px'></div>"));
+    var card2=mk("div","cc");
+    var cs2=mk("div","cs");
+    cs2.innerHTML="<div style='width:42px;height:42px;border-radius:12px;background:var(--gp);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0'>"+W.svc.ico+"</div><div><div class='cv' style='font-size:14px'>"+W.svc.name+"</div><div class='cl'>"+W.svc.dur+" &mdash; $"+W.svc.price+"</div></div>";
+    card2.appendChild(cs2);
+    [{ico:"&#128197;",l:"Available days",v:dayStr},{ico:"&#9997;",l:"Preference",v:W.stf?W.stf.name:"Any esthetician"},{ico:"&#9889;",l:"Priority",v:ps[W.pri]},{ico:"&#128100;",l:"Name",v:W.name},{ico:"&#128222;",l:"Contact",v:W.phone||W.email}].forEach(function(r){
+      var cr=mk("div","cr");cr.innerHTML="<div class='ci'>"+r.ico+"</div><div><div class='cl'>"+r.l+"</div><div class='cv'>"+r.v+"</div></div>";card2.appendChild(cr);
+    });
+    bd.appendChild(card2);
+    bd.appendChild(mk("div","nb","When a cancellation matches your preferences we will contact you right away. Reply any time to remove yourself from the list."));
+    bd.appendChild(mkBtn("bg bw","Join Waitlist &#10003;",wSub));
+    bd.appendChild(mkBtn("gh","&#8592; Edit",wBk));
+
   } else {
-    var wf=W.name.split(' ')[0]||'there';
-    var wn=Math.floor(Math.random()*3)+2;
-    h='<div class="ok"><div class="wn">'+wn+'</div>'+
-      '<div class="ot">You\'re on the list, <span class="on">'+wf+'</span>!</div>'+
-      '<div class="om">You\'re #'+wn+' for <strong>'+W.svc.name+'</strong>. The moment a spot opens we\'ll contact '+(W.phone||W.email)+'. First to confirm gets it!</div>'+
-      '<div class="ws"><div class="wst">&#128203; Your details</div><div class="wsb">'+W.svc.name+' &mdash; $'+W.svc.price+'<br>'+ds+' &mdash; '+(W.stf?W.stf.name:'Any esthetician')+'</div></div>'+
-      '<button class="bg" onclick="setMode(\'book\')">Book a Specific Time Instead</button>'+
-      '<button class="gh" style="margin-top:10px" onclick="setMode(\'waitlist\')">Join for Another Service</button></div>';
+    var wf=W.name.split(" ")[0]||"there";
+    var wnum=Math.floor(Math.random()*3)+2;
+    var ps2={asap:"ASAP",week:"This week",month:"This month",flex:"Flexible"};
+    var ok2=mk("div","ok");
+    ok2.innerHTML="<div class='wnum'>"+wnum+"</div><div class='ot'>You're on the list, <span class='onh'>"+wf+"</span>!</div><div class='eta-badge'>"+ETA_MAP[W.pri]+"</div><div class='om'>You're #"+wnum+" for <strong>"+W.svc.name+"</strong>. We will contact "+(W.phone||W.email)+" the moment a spot opens. First to reply gets it!</div><div class='ws2'><div class='wst'>&#128203; Your details</div><div class='wsb'>"+W.svc.name+" &middot; $"+W.svc.price+"<br>"+dayStr+" &middot; "+(W.stf?W.stf.name:"Any esthetician")+"<br>Priority: "+ps2[W.pri]+"</div></div>";
+    ok2.appendChild(mkBtn("bg","Book a Specific Time Instead",function(){setMode("book");}));
+    var gh2=mkBtn("gh","Join for Another Service",function(){setMode("waitlist");});
+    gh2.style.marginTop="4px";ok2.appendChild(gh2);
+    bd.appendChild(ok2);
   }
-  b.innerHTML=h;
 }
 
-function wSvc(id){W.svc=SVC.find(function(s){return s.id===id;});W.step=1;fade(render);}
+function wSvc(id){W.svc=SVC.find(function(s){return s.id===id;});W.step=1;activeCat="All";fade(render);}
 function wStf(id){W.stf=id?STF.find(function(m){return m.id===id;}):null;renderWL();}
 function wPri(p){W.pri=p;renderWL();}
 function wDay(d){var i=W.days.indexOf(d);if(i>=0)W.days.splice(i,1);else W.days.push(d);renderWL();}
 function wNx(){W.step++;fade(render);}
-function wBk(){W.step=Math.max(0,W.step-1);fade(render);}
+function wBk(){W.step=Math.max(0,W.step-1);activeCat="All";fade(render);}
 function wSub(){W.step=4;fade(render);}
-function chkW(){var b=document.getElementById('wibtn');if(b)b.disabled=!(W.name&&(W.phone||W.email));}
+function chkW(){var b=el("wibtn");if(b)b.disabled=!(W.name&&(W.phone||W.email));}
 
-function render(){if(mode==='book')renderBook();else renderWL();}
+function render(){if(mode==="book")renderBook();else renderWL();}
 
-// Init
-var hS=document.getElementById('hS');
-var hT=document.getElementById('hT');
-if(hS)hS.textContent=CFG.welcomeMsg||'Book Your Visit';
-if(hT)hT.textContent=CFG.tagline||'Palmer, MI';
+var hSel=el("hS");if(hSel)hSel.textContent=CFG.welcomeMsg||"Book Your Visit";
+var hTel=el("hT");if(hTel)hTel.textContent=CFG.tagline||"Jonesboro, AR";
 
 if(!CFG.enabled){
-  var od=document.getElementById('bd');
-  od.style.cssText='text-align:center;padding:48px 24px';
-  od.innerHTML='<div style="font-size:52px;margin-bottom:16px">&#128274;</div>'+
-    '<div style="font-size:20px;font-weight:600;color:#2d2620;margin-bottom:10px">Online booking is currently unavailable</div>'+
-    '<div style="font-size:15px;color:#9c8f82;line-height:1.65">Please call or text us to schedule. We look forward to seeing you!</div>';
-  document.getElementById('pg').style.display='none';
-  document.querySelector('.mt').style.display='none';
-} else {
+  var od=el("bd");
+  od.innerHTML="<div style='text-align:center;padding:52px 24px'><div style='font-size:52px;margin-bottom:16px'>&#128274;</div><div style='font-size:20px;font-weight:600;color:#2d2620;margin-bottom:10px'>Online booking is currently unavailable</div><div style='font-size:15px;color:#9c8f82;line-height:1.65'>Please call or text us to schedule. We look forward to seeing you!</div></div>";
+  el("stepBar").style.display="none";
+  document.querySelector(".mt").style.display="none";
+}else{
   render();
 }
 </script>
