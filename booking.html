@@ -13,7 +13,7 @@ html,body{width:100%;min-height:100%;background:var(--bg);font-family:'Jost',san
 .hdr{background:linear-gradient(145deg,#f5e6c8,#e8cd96,#d4aa6a);padding:env(safe-area-inset-top,24px) 24px 20px;position:relative;overflow:hidden;}
 .hdr::before{content:'';position:absolute;top:-60px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,255,255,.3),transparent 70%);border-radius:50%;}
 .logo{font-family:'Playfair Display',Georgia,serif;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(74,44,8,.5);margin-bottom:4px;}
-.hed{font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;color:#4a2c08;letter-spacing:-.5px;margin-bottom:2px;}
+.hed{font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;color:#4a2c08;margin-bottom:2px;}
 .sub{font-family:'Cormorant Garamond',Georgia,serif;font-size:13px;font-style:italic;color:rgba(74,44,8,.6);margin-bottom:18px;}
 .mt{display:flex;background:rgba(255,255,255,.35);border-radius:12px;padding:4px;}
 .mb{flex:1;padding:9px 10px;border:none;background:transparent;border-radius:9px;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;color:rgba(74,44,8,.55);cursor:pointer;line-height:1.2;transition:all .2s;}
@@ -21,63 +21,83 @@ html,body{width:100%;min-height:100%;background:var(--bg);font-family:'Jost',san
 .mb span{display:block;font-size:10px;font-weight:400;opacity:.7;margin-top:2px;}
 .steps{display:flex;align-items:flex-start;gap:0;margin-top:16px;}
 .step-dot{display:flex;flex-direction:column;align-items:center;flex:1;position:relative;}
-.step-dot::before{content:'';position:absolute;top:8px;left:50%;width:100%;height:2px;background:rgba(74,44,8,.15);z-index:0;}
+.step-dot::before{content:'';position:absolute;top:9px;left:50%;width:100%;height:2px;background:rgba(74,44,8,.15);z-index:0;}
 .step-dot:last-child::before{display:none;}
 .sd{width:18px;height:18px;border-radius:50%;background:rgba(74,44,8,.18);z-index:1;position:relative;display:flex;align-items:center;justify-content:center;font-size:9px;color:rgba(74,44,8,.4);transition:all .3s;font-family:'Jost',sans-serif;}
 .sd.on{background:rgba(74,44,8,.6);color:#fff;}
 .sd.done{background:rgba(74,44,8,.4);color:#fff;}
-.sl{font-size:8.5px;color:rgba(74,44,8,.45);margin-top:4px;text-align:center;letter-spacing:.02em;font-family:'Jost',sans-serif;}
+.sl{font-size:8.5px;color:rgba(74,44,8,.45);margin-top:4px;text-align:center;font-family:'Jost',sans-serif;}
 .sl.on{color:rgba(74,44,8,.75);font-weight:600;}
 .body{flex:1;padding:22px 20px 40px;}
 .sh{font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:600;color:var(--tx);margin-bottom:4px;}
 .ss{font-family:'Cormorant Garamond',Georgia,serif;font-size:14px;font-style:italic;color:var(--mu);margin-bottom:16px;}
-.cat-tabs{display:flex;gap:7px;margin-bottom:16px;flex-wrap:wrap;}
-.ct{padding:5px 13px;border-radius:20px;border:1.5px solid var(--bd);background:#fff;font-family:'Jost',sans-serif;font-size:11.5px;font-weight:500;color:var(--mu);cursor:pointer;transition:all .15s;}
-.ct.on{border-color:var(--gold);background:var(--gp);color:var(--gd);font-weight:600;}
-.sc{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1.5px solid var(--bd);border-radius:16px;margin-bottom:9px;cursor:pointer;transition:all .18s;}
-.sc:hover,.sc.sel{border-color:var(--gold);transform:translateY(-1px);box-shadow:0 3px 14px rgba(184,151,90,.14);}
-.sc.sel{background:#fffdf8;}
-.si{width:44px;height:44px;border-radius:12px;background:var(--gp);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
-.sn{font-size:14px;font-weight:600;color:var(--tx);margin-bottom:2px;}
-.sm{font-size:11.5px;color:var(--mu);}
-.sp{font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:600;color:var(--tx);margin-left:auto;flex-shrink:0;}
-.pop{display:inline-block;font-size:9px;font-weight:600;color:#4a7459;background:#e8f0eb;border-radius:8px;padding:1px 7px;margin-left:6px;vertical-align:middle;}
+/* Staff cards - bigger for photos */
 .tc{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1.5px solid var(--bd);border-radius:16px;margin-bottom:9px;cursor:pointer;transition:all .18s;}
 .tc:hover,.tc.sel{border-color:var(--gold);box-shadow:0 3px 14px rgba(184,151,90,.12);}
-.av{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;}
+.tc.sel{background:#fffdf8;}
+.av{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;flex-shrink:0;overflow:hidden;}
+.av img{width:100%;height:100%;object-fit:cover;}
 .tn{font-size:14px;font-weight:600;color:var(--tx);margin-bottom:2px;}
-.tr{font-family:'Cormorant Garamond',Georgia,serif;font-size:12px;font-style:italic;color:var(--mu);}
-.sb2{display:inline-block;font-size:9.5px;font-weight:600;color:var(--gd);background:var(--gp);border-radius:8px;padding:2px 8px;margin-top:3px;}
+.tr{font-family:'Cormorant Garamond',Georgia,serif;font-size:13px;font-style:italic;color:var(--mu);}
 .spec-list{font-size:10.5px;color:#b0a090;margin-top:3px;}
+/* Service cards - multi-select style */
+.cat-tabs{display:flex;gap:7px;margin-bottom:14px;flex-wrap:wrap;}
+.ct{padding:5px 13px;border-radius:20px;border:1.5px solid var(--bd);background:#fff;font-family:'Jost',sans-serif;font-size:11.5px;font-weight:500;color:var(--mu);cursor:pointer;transition:all .15s;}
+.ct.on{border-color:var(--gold);background:var(--gp);color:var(--gd);font-weight:600;}
+.sc{display:flex;align-items:center;gap:12px;padding:12px 14px;background:#fff;border:1.5px solid var(--bd);border-radius:16px;margin-bottom:8px;cursor:pointer;transition:all .18s;position:relative;}
+.sc:hover{border-color:var(--gold);transform:translateY(-1px);}
+.sc.sel{border-color:var(--gold);background:#fffdf8;box-shadow:0 3px 12px rgba(184,151,90,.15);}
+.sc-check{width:22px;height:22px;border-radius:7px;border:2px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;transition:all .15s;}
+.sc.sel .sc-check{border-color:var(--gold);background:var(--gold);color:#fff;}
+.si{width:44px;height:44px;border-radius:12px;background:var(--gp);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;overflow:hidden;}
+.si img{width:100%;height:100%;object-fit:cover;}
+.sn{font-size:13.5px;font-weight:600;color:var(--tx);margin-bottom:2px;}
+.sm{font-size:11px;color:var(--mu);}
+.sp{font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:600;color:var(--tx);margin-left:auto;flex-shrink:0;}
+.pop{display:inline-block;font-size:9px;font-weight:600;color:#4a7459;background:#e8f0eb;border-radius:8px;padding:1px 7px;margin-left:6px;vertical-align:middle;}
+.spec-match{display:inline-block;font-size:9px;font-weight:600;color:var(--gd);background:var(--gp);border-radius:8px;padding:1px 7px;margin-left:4px;vertical-align:middle;}
+/* Cart bar */
+.cart-bar{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--bd);padding:12px 20px;display:flex;align-items:center;gap:12;box-shadow:0 -4px 16px rgba(0,0,0,.08);}
+.cart-info{flex:1;}
+.cart-count{font-size:11px;font-weight:600;color:var(--mu);margin-bottom:1px;}
+.cart-total{font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:600;color:var(--tx);}
+.cart-dur{font-size:11px;color:var(--mu);margin-top:1px;}
+/* Time */
 .time-group{margin-bottom:16px;}
 .tg-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#b8b0a6;margin-bottom:8px;font-family:'Jost',sans-serif;}
 .tg{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;}
 .tp{padding:10px 4px;border-radius:11px;border:1.5px solid var(--bd);background:#fff;cursor:pointer;text-align:center;font-family:'Jost',sans-serif;font-size:12.5px;color:var(--tx);transition:all .15s;position:relative;}
 .tp:hover,.tp.sel{border-color:var(--gold);background:var(--gp);color:var(--gd);font-weight:600;}
 .hot-dot{position:absolute;top:-4px;right:-2px;width:8px;height:8px;background:#d4956a;border-radius:50%;border:1.5px solid var(--bg);}
+/* Form */
 .lb{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--mu);margin-bottom:7px;margin-top:14px;display:block;font-family:'Jost',sans-serif;}
 .field-wrap{margin-bottom:12px;}
 .fi{width:100%;padding:12px 14px;border:1.5px solid var(--bd);border-radius:12px;font-family:'Jost',sans-serif;font-size:14px;color:var(--tx);background:#fff;outline:none;transition:border-color .15s;display:block;}
 .fi:focus{border-color:var(--gold);}
 .fa{width:100%;padding:12px 14px;border:1.5px solid var(--bd);border-radius:12px;font-family:'Jost',sans-serif;font-size:14px;color:var(--tx);background:#fff;outline:none;resize:none;height:72px;transition:border-color .15s;display:block;}
 .fa:focus{border-color:var(--gold);}
-.char-count{font-size:10px;color:#c8b9a8;text-align:right;margin-top:4px;margin-bottom:10px;font-family:'Jost',sans-serif;}
-.cc{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:18px;margin-bottom:14px;}
-.cs{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid #f0ebe3;margin-bottom:14px;}
+.char-count{font-size:10px;color:#c8b9a8;text-align:right;margin-top:4px;font-family:'Jost',sans-serif;}
+/* Confirm */
+.cc{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:16px;margin-bottom:14px;}
+.svc-pill{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #f5f0ea;}
+.svc-pill:last-child{border-bottom:none;padding-bottom:0;}
 .cr{display:flex;align-items:flex-start;gap:10px;margin-bottom:11px;}
 .cr:last-child{margin:0;}
 .ci{font-size:14px;width:22px;flex-shrink:0;margin-top:2px;}
 .cl{font-size:10px;color:var(--mu);margin-bottom:2px;}
 .cv{font-size:13.5px;font-weight:500;color:var(--tx);}
+.total-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0 0;border-top:1px solid #f5f0ea;margin-top:8px;}
 .nb{font-size:12px;color:var(--mu);line-height:1.6;padding:12px 14px;background:var(--sf);border-radius:12px;border:1px solid #f0ebe3;margin-bottom:14px;}
+/* Buttons */
 .bg{width:100%;padding:14px;background:linear-gradient(135deg,var(--gold),var(--ga));color:#fff;border:none;border-radius:13px;font-family:'Jost',sans-serif;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 3px 14px rgba(184,151,90,.3);margin-bottom:10px;transition:opacity .15s,transform .1s;}
 .bg:active{transform:scale(.98);}
-.bg:disabled{opacity:.4;cursor:default;}
+.bg:disabled{opacity:.4;cursor:default;box-shadow:none;}
 .bw{background:linear-gradient(135deg,#6b5e52,#5a4e45);box-shadow:none;}
 .gh{width:100%;padding:11px;background:none;border:1.5px solid var(--bd);border-radius:12px;font-family:'Jost',sans-serif;font-size:13px;color:var(--mu);cursor:pointer;transition:border-color .15s;}
 .gh:hover{border-color:var(--gold);color:var(--gd);}
-.cal-btn{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;padding:11px;border:1.5px dashed #c8b9a8;border-radius:12px;background:transparent;font-family:'Jost',sans-serif;font-size:13px;color:var(--mu);cursor:pointer;margin-bottom:10px;transition:border-color .15s,color .15s;}
+.cal-btn{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;padding:11px;border:1.5px dashed #c8b9a8;border-radius:12px;background:transparent;font-family:'Jost',sans-serif;font-size:13px;color:var(--mu);cursor:pointer;margin-bottom:10px;transition:border-color .15s;}
 .cal-btn:hover{border-color:var(--gold);color:var(--gd);}
+/* Waitlist */
 .wb{background:linear-gradient(135deg,#f5eee3,#ede4d8);border:1px solid #d4c4a8;border-radius:16px;padding:16px 18px;margin-bottom:18px;}
 .wbt{font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:600;color:#4a2c08;margin-bottom:5px;}
 .wbx{font-size:12.5px;color:#7a5e3a;line-height:1.65;}
@@ -91,7 +111,7 @@ html,body{width:100%;min-height:100%;background:var(--bg);font-family:'Jost',san
 .pl{font-size:13px;font-weight:600;color:var(--tx);margin-bottom:2px;}
 .px{font-size:11px;color:var(--mu);}
 .pc.sel .pl,.pc.sel .px{color:var(--gd);}
-.wnum{width:58px;height:58px;border-radius:50%;background:var(--gp);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;color:var(--gd);margin:0 auto 14px;}
+/* Success */
 .ok{text-align:center;padding:20px 0 36px;}
 .ot{font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:600;color:var(--tx);margin-bottom:8px;}
 .om{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:var(--mu);line-height:1.65;margin-bottom:20px;}
@@ -109,7 +129,7 @@ html,body{width:100%;min-height:100%;background:var(--bg);font-family:'Jost',san
     <div class="hed" id="hS">Book Your Visit</div>
     <div class="sub" id="hT">Jonesboro, AR &mdash; Online Booking</div>
     <div class="mt">
-      <button class="mb on" id="bkBtn" onclick="setMode('book')">Book Appointment<span>Choose a date &amp; time</span></button>
+      <button class="mb on" id="bkBtn" onclick="setMode('book')">Book Appointment<span>Choose your esthetician &amp; services</span></button>
       <button class="mb" id="wlBtn" onclick="setMode('waitlist')">Join Waitlist<span>Get notified of openings</span></button>
     </div>
     <div class="steps" id="stepBar"></div>
@@ -118,40 +138,57 @@ html,body{width:100%;min-height:100%;background:var(--bg);font-family:'Jost',san
 </div>
 <script>
 var ALL_SVC=[
-  {id:"s1",name:"Hydrafacial",cat:"Facial",dur:"60 min",price:145,ico:"&#128167;",sp:["JT"],popular:true},
-  {id:"s2",name:"Custom Facial",cat:"Facial",dur:"75 min",price:120,ico:"&#10024;",sp:["JT","ML"],popular:false},
-  {id:"s3",name:"Signature Facial",cat:"Facial",dur:"60 min",price:130,ico:"&#127800;",sp:["ML"],popular:true},
-  {id:"s4",name:"Chemical Peel",cat:"Facial",dur:"60 min",price:110,ico:"&#127807;",sp:["JT"],popular:false},
-  {id:"s5",name:"Microdermabrasion",cat:"Facial",dur:"60 min",price:100,ico:"&#128142;",sp:["ML"],popular:false},
-  {id:"s6",name:"Lash Lift and Tint",cat:"Lash and Brow",dur:"45 min",price:95,ico:"&#128065;",sp:["CB"],popular:true},
-  {id:"s7",name:"Brow Lamination",cat:"Lash and Brow",dur:"45 min",price:75,ico:"&#127912;",sp:["CB"],popular:false},
-  {id:"s8",name:"Back Facial",cat:"Body",dur:"60 min",price:90,ico:"&#127802;",sp:["ML"],popular:false}
+  {id:"s1",name:"Hydrafacial",cat:"Facial",dur:60,price:145,ico:"&#128167;",sp:["JT"],popular:true},
+  {id:"s2",name:"Custom Facial",cat:"Facial",dur:75,price:120,ico:"&#10024;",sp:["JT","ML"],popular:false},
+  {id:"s3",name:"Signature Facial",cat:"Facial",dur:60,price:130,ico:"&#127800;",sp:["ML"],popular:true},
+  {id:"s4",name:"Chemical Peel",cat:"Facial",dur:60,price:110,ico:"&#127807;",sp:["JT"],popular:false},
+  {id:"s5",name:"Microdermabrasion",cat:"Facial",dur:60,price:100,ico:"&#128142;",sp:["ML"],popular:false},
+  {id:"s6",name:"Lash Lift and Tint",cat:"Lash and Brow",dur:45,price:95,ico:"&#128065;",sp:["CB"],popular:true},
+  {id:"s7",name:"Brow Lamination",cat:"Lash and Brow",dur:45,price:75,ico:"&#127912;",sp:["CB"],popular:false},
+  {id:"s8",name:"Back Facial",cat:"Body",dur:60,price:90,ico:"&#127802;",sp:["ML"],popular:false}
 ];
 var ALL_STF=[
-  {id:"JT",name:"Jadyn Tippitt",role:"Lead Esthetician and Owner",color:"#b8975a",init:"JT",specials:["Hydrafacial","Custom Facial","Chemical Peel"]},
-  {id:"ML",name:"Megan Lamb",role:"Esthetician and Owner",color:"#7a9e87",init:"ML",specials:["Custom Facial","Signature Facial","Back Facial"]},
+  {id:"JT",name:"Jadyn Tippitt",role:"Lead Esthetician &amp; Owner",color:"#b8975a",init:"JT",specials:["Hydrafacial","Custom Facial","Chemical Peel"]},
+  {id:"ML",name:"Megan Lamb",role:"Esthetician &amp; Owner",color:"#7a9e87",init:"ML",specials:["Custom Facial","Signature Facial","Back Facial"]},
   {id:"CB",name:"Cassandra Bastian",role:"Esthetician",color:"#a898c8",init:"CB",specials:["Lash Lift and Tint","Brow Lamination"]}
 ];
 var AM_SLOTS=["9:00 AM","9:30 AM","10:00 AM","10:30 AM","11:00 AM","11:30 AM"];
 var PM_SLOTS=["1:00 PM","1:30 PM","2:00 PM","2:30 PM","3:00 PM","3:30 PM","4:00 PM"];
 var HOT_SLOTS=["10:00 AM","2:00 PM","11:00 AM"];
 var DAYS=[{l:"Monday",s:"Mon",k:"M"},{l:"Tuesday",s:"Tue",k:"T"},{l:"Wednesday",s:"Wed",k:"W"},{l:"Thursday",s:"Thu",k:"T"},{l:"Friday",s:"Fri",k:"F"},{l:"Saturday",s:"Sat",k:"Sa"},{l:"Sunday",s:"Sun",k:"Su"}];
-var BSTEPS=["Service","Who","Time","Info","Confirm"];
+var BSTEPS=["Who","Services","Time","Info","Confirm"];
 var WSTEPS=["Service","Availability","Contact","Review"];
-var ETA_MAP={asap:"Usually within 1-2 days",week:"Within this week",month:"Within 30 days",flex:"We'll let you know whenever"};
+var ETA_MAP={asap:"Usually within 1-2 days",week:"Within this week",month:"Within 30 days",flex:"We'll be in touch"};
 
-var CFG={enabled:true,studioName:"esthetique Studio",tagline:"Jonesboro, AR",welcomeMsg:"Book Your Visit",cancellationNote:"24-hour cancellation notice required. Late cancellations may incur a fee.",timeSlots:AM_SLOTS.concat(PM_SLOTS),enabledServices:["s1","s2","s3","s4","s5","s6","s7","s8"],enabledStaff:["JT","ML","CB"]};
-try{var _c=localStorage.getItem("esth-public-config");if(_c){var _p=JSON.parse(_c);for(var k in _p){if(_p.hasOwnProperty(k))CFG[k]=_p[k];}}}catch(e){}
+// Load config from shared localStorage (staff app writes this)
+var CFG={enabled:true,studioName:"esthetique Studio",tagline:"Jonesboro, AR",welcomeMsg:"Book Your Visit",
+         cancellationNote:"24-hour cancellation notice required. Late cancellations may incur a fee.",
+         timeSlots:AM_SLOTS.concat(PM_SLOTS),
+         enabledServices:["s1","s2","s3","s4","s5","s6","s7","s8"],
+         enabledStaff:["JT","ML","CB"]};
+var STAFF_PHOTOS={};
+var SVC_PHOTOS={};
+try{
+  var _c=localStorage.getItem("esth-public-config");
+  if(_c){var _p=JSON.parse(_c);for(var k in _p){if(_p.hasOwnProperty(k))CFG[k]=_p[k];}}
+  var _sp=localStorage.getItem("esth-staff-photos");
+  if(_sp)STAFF_PHOTOS=JSON.parse(_sp);
+  var _svp=localStorage.getItem("esth-service-photos");
+  if(_svp)SVC_PHOTOS=JSON.parse(_svp);
+  var _svcs=localStorage.getItem("esth-services");
+  if(_svcs){JSON.parse(_svcs).forEach(function(s){var m=ALL_SVC.find(function(x){return x.id===s.id;});if(m&&s.price){m.price=s.price;m.name=s.name;}});}
+}catch(e){}
 if(!Array.isArray(CFG.enabledServices))CFG.enabledServices=ALL_SVC.map(function(s){return s.id;});
 if(!Array.isArray(CFG.enabledStaff))CFG.enabledStaff=ALL_STF.map(function(m){return m.id;});
-try{var _sv=localStorage.getItem("esth-services");if(_sv){JSON.parse(_sv).forEach(function(s){var m=ALL_SVC.find(function(x){return x.id===s.id;});if(m&&s.price){m.price=s.price;m.name=s.name;}});}}catch(e){}
 
 var SVC=ALL_SVC.filter(function(s){return CFG.enabledServices.indexOf(s.id)>=0;});
 var STF=ALL_STF.filter(function(m){return CFG.enabledStaff.indexOf(m.id)>=0;});
+var TIMES=(CFG.timeSlots&&CFG.timeSlots.length)?CFG.timeSlots:AM_SLOTS.concat(PM_SLOTS);
 
 var mode="book";
 var activeCat="All";
-var B={step:0,svc:null,stf:null,date:"",time:null,name:"",phone:"",email:"",notes:""};
+// B.svcs is now an ARRAY for multi-select; B.stf is chosen first
+var B={step:0,stf:null,svcs:[],date:"",time:null,name:"",phone:"",email:"",notes:""};
 var W={step:0,svc:null,stf:null,pri:"asap",days:[],name:"",phone:"",email:"",notes:""};
 
 function today(){return new Date().toISOString().split("T")[0];}
@@ -160,7 +197,9 @@ function el(id){return document.getElementById(id);}
 function mk(tag,cls,html){var d=document.createElement(tag);if(cls)d.className=cls;if(html)d.innerHTML=html;return d;}
 function mkBtn(cls,txt,fn){var b=mk("button",cls,txt);if(fn)b.onclick=fn;return b;}
 function ucats(list){var s={},r=[];list.forEach(function(x){if(!s[x.cat]){s[x.cat]=1;r.push(x.cat);}});return r;}
-
+function totalPrice(){return B.svcs.reduce(function(t,s){return t+s.price;},0);}
+function totalDur(){return B.svcs.reduce(function(t,s){return t+s.dur;},0);}
+function fmtDur(m){if(m<60)return m+"min";return Math.floor(m/60)+"h"+(m%60?""+m%60+"min":"");}
 function fmtPhone(v){
   var d=v.replace(/\D/g,"").substring(0,10);
   if(d.length>=10)return"("+d.slice(0,3)+") "+d.slice(3,6)+"-"+d.slice(6,10);
@@ -168,10 +207,8 @@ function fmtPhone(v){
   if(d.length>=4)return"("+d.slice(0,3)+") "+d.slice(3);
   return d;
 }
-
 function toHHMM(t,addMin){
-  addMin=addMin||0;
-  var m=t.match(/(\d+):(\d+) (AM|PM)/);
+  addMin=addMin||0;var m=t.match(/(\d+):(\d+) (AM|PM)/);
   if(!m)return"090000";
   var h=parseInt(m[1]),mn=parseInt(m[2]),ap=m[3];
   if(ap==="PM"&&h!==12)h+=12;if(ap==="AM"&&h===12)h=0;
@@ -183,7 +220,7 @@ function setMode(m){
   mode=m;activeCat="All";
   el("bkBtn").className="mb"+(m==="book"?" on":"");
   el("wlBtn").className="mb"+(m==="waitlist"?" on":"");
-  B={step:0,svc:null,stf:null,date:"",time:null,name:"",phone:"",email:"",notes:""};
+  B={step:0,stf:null,svcs:[],date:"",time:null,name:"",phone:"",email:"",notes:""};
   W={step:0,svc:null,stf:null,pri:"asap",days:[],name:"",phone:"",email:"",notes:""};
   fade(render);
 }
@@ -206,89 +243,159 @@ function fade(fn){
   setTimeout(function(){fn();b.style.cssText="opacity:1;transform:translateY(0);transition:opacity .2s,transform .2s";},160);
 }
 
-function mkCatTabs(filtFn){
+function mkCatTabs(list,refreshFn){
   var tabs=mk("div","cat-tabs");
-  ["All"].concat(ucats(SVC)).forEach(function(cat){
+  ["All"].concat(ucats(list)).forEach(function(cat){
     var t=mk("div","ct"+(activeCat===cat?" on":""),cat);
-    t.onclick=function(){activeCat=cat;filtFn();};
+    t.onclick=function(){activeCat=cat;refreshFn();};
     tabs.appendChild(t);
   });
   return tabs;
 }
 
-function mkSvcCards(list,selId,fn){
-  var f=document.createDocumentFragment();
-  list.forEach(function(s){
-    var d=mk("div","sc"+(selId===s.id?" sel":""));
-    var pop=s.popular?"<span class='pop'>Popular</span>":"";
-    d.innerHTML="<div class='si'>"+s.ico+"</div><div style='flex:1'><div class='sn'>"+s.name+pop+"</div><div class='sm'>"+s.dur+"</div></div><div class='sp'>$"+s.price+"</div>";
-    d.onclick=function(){fn(s.id);};f.appendChild(d);
-  });
-  return f;
-}
-
-function mkStfCards(selId,fn,svc){
+// ── STAFF CARDS (step 0) ─────────────────────────────────────────────────────
+function mkStfCards(selId,onClickFn){
   var f=document.createDocumentFragment();
   var n=mk("div","tc"+(selId===null?" sel":""));
-  n.innerHTML="<div class='av' style='background:var(--gp);color:var(--gd);font-size:18px'>&#127922;</div><div><div class='tn'>No preference</div><div class='tr'>First available esthetician</div></div>";
-  n.onclick=function(){fn(null);};f.appendChild(n);
+  n.innerHTML="<div class='av' style='background:var(--gp);color:var(--gd);font-size:20px'>&#127922;</div>"+
+    "<div><div class='tn'>No preference</div><div class='tr'>First available esthetician</div>"+
+    "<div class='spec-list'>We'll match you with whoever fits best</div></div>";
+  n.onclick=function(){onClickFn(null);};f.appendChild(n);
   STF.forEach(function(m){
-    var sp=svc&&svc.sp.indexOf(m.id)>=0;
     var d=mk("div","tc"+(selId===m.id?" sel":""));
-    d.innerHTML="<div class='av' style='background:"+m.color+"'>"+m.init+"</div><div style='flex:1'><div class='tn'>"+m.name+"</div>"+(sp?"<div class='sb2'>&#10022; Specializes in this</div>":"<div class='tr'>"+m.role+"</div>")+"<div class='spec-list'>"+m.specials.join(" &middot; ")+"</div></div>";
-    d.onclick=function(){fn(m.id);};f.appendChild(d);
+    var avHtml;
+    if(STAFF_PHOTOS[m.id]){
+      avHtml="<div class='av'><img src='"+STAFF_PHOTOS[m.id]+"' alt='"+m.name+"'/></div>";
+    } else {
+      avHtml="<div class='av' style='background:"+m.color+"'>"+m.init+"</div>";
+    }
+    d.innerHTML=avHtml+
+      "<div style='flex:1'><div class='tn'>"+m.name+"</div><div class='tr'>"+m.role+"</div>"+
+      "<div class='spec-list'>"+m.specials.join(" &middot; ")+"</div></div>";
+    d.onclick=function(){onClickFn(m.id);};f.appendChild(d);
   });
   return f;
 }
 
-function mkTimeGroup(label,slots){
-  var g=mk("div","time-group");
-  g.appendChild(mk("div","tg-label",label));
-  var tg=mk("div","tg");
-  slots.forEach(function(t){
-    var tp=mk("div","tp"+(B.time===t?" sel":""),t);
-    if(HOT_SLOTS.indexOf(t)>=0){tp.appendChild(mk("div","hot-dot"));}
-    tp.onclick=function(){bTime(t);};tg.appendChild(tp);
+// ── SERVICE CARDS (step 1, multi-select) ─────────────────────────────────────
+function mkSvcCards(list,selIds,toggleFn){
+  var f=document.createDocumentFragment();
+  var stf=B.stf;  // selected staff for specialty highlighting
+  list.forEach(function(s){
+    var isSel=selIds.indexOf(s.id)>=0;
+    var isSpec=stf&&stf.sp.indexOf(s.id)>=0;
+    var d=mk("div","sc"+(isSel?" sel":""));
+    var checkHtml="<div class='sc-check'>"+(isSel?"&#10003;":"")+"</div>";
+    var imgHtml;
+    if(SVC_PHOTOS[s.id]){
+      imgHtml="<div class='si'><img src='"+SVC_PHOTOS[s.id]+"' alt='"+s.name+"'/></div>";
+    } else {
+      imgHtml="<div class='si'>"+s.ico+"</div>";
+    }
+    var popHtml=s.popular?"<span class='pop'>Popular</span>":"";
+    var specHtml=isSpec?"<span class='spec-match'>&#10022; Specializes</span>":"";
+    d.innerHTML=checkHtml+imgHtml+
+      "<div style='flex:1'><div class='sn'>"+s.name+popHtml+specHtml+"</div>"+
+      "<div class='sm'>"+fmtDur(s.dur)+"</div></div>"+
+      "<div class='sp'>$"+s.price+"</div>";
+    d.onclick=function(){toggleFn(s.id);};f.appendChild(d);
   });
-  g.appendChild(tg);return g;
+  return f;
 }
 
-// ── BOOKING ──────────────────────────────────────────────────────────────────
+// ── CART BAR ──────────────────────────────────────────────────────────────────
+function mkCartBar(onContinue){
+  var bar=mk("div","cart-bar");
+  bar.style.cssText="position:sticky;bottom:0;background:#fff;border-top:1px solid var(--bd);padding:12px 0 0;display:flex;align-items:center;gap:12px;box-shadow:0 -4px 16px rgba(0,0,0,.06);margin:0 -20px;padding:12px 20px;";
+  var info=mk("div","cart-info");
+  info.innerHTML="<div class='cart-count'>"+B.svcs.length+" service"+(B.svcs.length!==1?"s":"")+" selected</div>"+
+    "<div class='cart-total'>$"+totalPrice()+"</div>"+
+    "<div class='cart-dur'>"+fmtDur(totalDur())+" total</div>";
+  var btn=mkBtn("bg","Continue &#8594;",onContinue);
+  btn.style.cssText="margin:0;flex-shrink:0;width:auto;padding:12px 20px;";
+  btn.disabled=B.svcs.length===0;
+  bar.appendChild(info);bar.appendChild(btn);
+  return bar;
+}
+
+// ── BOOKING FLOW ─────────────────────────────────────────────────────────────
 function renderBook(){
   drawSteps();
   var bd=el("bd");bd.innerHTML="";
 
+  // STEP 0: Choose staff member first
   if(B.step===0){
-    bd.appendChild(mk("div","sh","What can we do for you?"));
-    bd.appendChild(mk("div","ss","Select a service to get started"));
-    bd.appendChild(mkCatTabs(renderBook));
-    var filtered=activeCat==="All"?SVC:SVC.filter(function(s){return s.cat===activeCat;});
-    bd.appendChild(mkSvcCards(filtered,B.svc&&B.svc.id,bSvc));
+    bd.appendChild(mk("div","sh","Who would you like to see?"));
+    bd.appendChild(mk("div","ss","Pick your esthetician or let us match you"));
+    bd.appendChild(mkStfCards(B.stf&&B.stf.id,bStf));
 
+  // STEP 1: Choose one or more services (filtered/highlighted by staff)
   } else if(B.step===1){
-    bd.appendChild(mk("div","sh","Your esthetician"));
-    bd.appendChild(mk("div","ss","See who specializes in "+B.svc.name));
-    bd.appendChild(mkStfCards(B.stf&&B.stf.id,bStf,B.svc));
-    bd.appendChild(mk("div",null,"<div style='height:10px'></div>"));
+    bd.appendChild(mk("div","sh","Choose your services"));
+    var ss=mk("div","ss");
+    if(B.stf){
+      ss.innerHTML="Tap to add multiple &mdash; showing "+B.stf.name.split(" ")[0]+"'s specialties";
+    } else {
+      ss.textContent="Tap to add multiple services";
+    }
+    bd.appendChild(ss);
+    bd.appendChild(mkCatTabs(SVC,renderBook));
+    // Show specialty services first if staff selected
+    var filtered=activeCat==="All"?SVC:SVC.filter(function(s){return s.cat===activeCat;});
+    if(B.stf&&activeCat==="All"){
+      var specFirst=filtered.slice().sort(function(a,b){
+        var aSpec=B.stf.sp.indexOf(a.id)>=0?0:1;
+        var bSpec=B.stf.sp.indexOf(b.id)>=0?0:1;
+        return aSpec-bSpec;
+      });
+      bd.appendChild(mkSvcCards(specFirst,B.svcs.map(function(s){return s.id;}),bToggleSvc));
+    } else {
+      bd.appendChild(mkSvcCards(filtered,B.svcs.map(function(s){return s.id;}),bToggleSvc));
+    }
+    // Sticky cart bar
+    bd.appendChild(mkCartBar(function(){if(B.svcs.length>0)bNx();}));
     bd.appendChild(mkBtn("gh","&#8592; Back",bBk));
 
+  // STEP 2: Date & time
   } else if(B.step===2){
     bd.appendChild(mk("div","sh","Date &amp; time"));
-    bd.appendChild(mk("div","ss","Pick your preferred slot"));
-    var di=document.createElement("input");di.type="date";di.className="fi";di.value=B.date||today();di.min=today();di.style.marginBottom="14px";
+    var durNote=mk("div","ss");
+    durNote.innerHTML=""+B.svcs.length+" service"+(B.svcs.length>1?"s":"")+
+      " &mdash; "+fmtDur(totalDur())+" total";
+    bd.appendChild(durNote);
+    var di=document.createElement("input");
+    di.type="date";di.className="fi";di.value=B.date||today();di.min=today();di.style.marginBottom="14px";
     di.oninput=function(){B.date=this.value;};bd.appendChild(di);
-    var custTimes=CFG.timeSlots||AM_SLOTS.concat(PM_SLOTS);
-    var amSlots=custTimes.filter(function(t){return t.indexOf("AM")>=0;});
-    var pmSlots=custTimes.filter(function(t){return t.indexOf("PM")>=0;});
-    if(amSlots.length) bd.appendChild(mkTimeGroup("&#9728; Morning",amSlots));
-    if(pmSlots.length) bd.appendChild(mkTimeGroup("&#127804; Afternoon",pmSlots));
+    var amSlots=TIMES.filter(function(t){return t.indexOf("AM")>=0;});
+    var pmSlots=TIMES.filter(function(t){return t.indexOf("PM")>=0;});
+    if(amSlots.length){
+      var mg=mk("div","time-group");mg.appendChild(mk("div","tg-label","&#9728; Morning"));
+      var mtg=mk("div","tg");
+      amSlots.forEach(function(t){
+        var tp=mk("div","tp"+(B.time===t?" sel":""),t);
+        if(HOT_SLOTS.indexOf(t)>=0)tp.appendChild(mk("div","hot-dot"));
+        tp.onclick=function(){bTime(t);};mtg.appendChild(tp);
+      });
+      mg.appendChild(mtg);bd.appendChild(mg);
+    }
+    if(pmSlots.length){
+      var ag=mk("div","time-group");ag.appendChild(mk("div","tg-label","&#127804; Afternoon"));
+      var atg=mk("div","tg");
+      pmSlots.forEach(function(t){
+        var tp=mk("div","tp"+(B.time===t?" sel":""),t);
+        if(HOT_SLOTS.indexOf(t)>=0)tp.appendChild(mk("div","hot-dot"));
+        tp.onclick=function(){bTime(t);};atg.appendChild(tp);
+      });
+      ag.appendChild(atg);bd.appendChild(ag);
+    }
     bd.appendChild(mk("div",null,"<div style='font-size:10.5px;color:#c8b9a8;margin-bottom:14px'>&#128293; Dot = popular time</div>"));
     var tb=mkBtn("bg","Continue &#8594;",bNx);tb.id="tbtn";tb.disabled=!B.time;bd.appendChild(tb);
     bd.appendChild(mkBtn("gh","&#8592; Back",bBk));
 
+  // STEP 3: Contact info
   } else if(B.step===3){
     bd.appendChild(mk("div","sh","Your information"));
-    bd.appendChild(mk("div","ss","We will send a confirmation your way"));
+    bd.appendChild(mk("div","ss","We will send your confirmation here"));
     [["Full Name","text","Jane Doe","name"],["Phone","tel","(555) 555-0100","phone"],["Email","email","jane@email.com","email"]].forEach(function(x){
       var fw=mk("div","field-wrap");
       var lb=mk("label","lb",x[0]);lb.style.marginTop="0";fw.appendChild(lb);
@@ -297,36 +404,65 @@ function renderBook(){
       fw.appendChild(inp);bd.appendChild(fw);
     });
     var lb2=mk("label","lb","Notes (optional)");lb2.style.marginTop="4px";bd.appendChild(lb2);
-    var ta=document.createElement("textarea");ta.className="fa";ta.placeholder="Allergies, skin sensitivities, anything we should know...";ta.value=B.notes;ta.maxLength=200;
-    var cc=mk("div","char-count","0 / 200");
-    ta.oninput=function(){B.notes=this.value;cc.textContent=this.value.length+" / 200";};
-    bd.appendChild(ta);bd.appendChild(cc);
-    var ib=mkBtn("bg","Review Booking &#8594;",function(){if(B.name&&(B.phone||B.email))bNx();});ib.id="ibtn";ib.disabled=!(B.name&&(B.phone||B.email));bd.appendChild(ib);
+    var ta=document.createElement("textarea");ta.className="fa";ta.placeholder="Allergies, skin sensitivities, or anything we should know...";ta.value=B.notes;ta.maxLength=200;
+    var ccount=mk("div","char-count","0 / 200");
+    ta.oninput=function(){B.notes=this.value;ccount.textContent=this.value.length+" / 200";};
+    bd.appendChild(ta);bd.appendChild(ccount);
+    var ib=mkBtn("bg","Review Booking &#8594;",function(){if(B.name&&(B.phone||B.email))bNx();});
+    ib.id="ibtn";ib.disabled=!(B.name&&(B.phone||B.email));bd.appendChild(ib);
     bd.appendChild(mkBtn("gh","&#8592; Back",bBk));
 
+  // STEP 4: Confirm
   } else if(B.step===4){
     bd.appendChild(mk("div","sh","Confirm your booking"));
-    bd.appendChild(mk("div",null,"<div style='height:8px'></div>"));
+    bd.appendChild(mk("div",null,"<div style='height:6px'></div>"));
     var card=mk("div","cc");
-    var cs=mk("div","cs");
-    cs.innerHTML="<div style='width:42px;height:42px;border-radius:12px;background:var(--gp);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0'>"+B.svc.ico+"</div><div><div class='cv' style='font-size:14px'>"+B.svc.name+"</div><div class='cl'>"+B.svc.dur+" &mdash; $"+B.svc.price+"</div></div>";
-    card.appendChild(cs);
-    [{ico:"&#128197;",l:"Date &amp; Time",v:fmtD(B.date)+" at "+B.time},{ico:"&#9997;",l:"Esthetician",v:B.stf?B.stf.name:"First available"},{ico:"&#128100;",l:"Name",v:B.name},{ico:"&#128222;",l:"Contact",v:B.phone||B.email}].forEach(function(r){
-      var cr=mk("div","cr");cr.innerHTML="<div class='ci'>"+r.ico+"</div><div><div class='cl'>"+r.l+"</div><div class='cv'>"+r.v+"</div></div>";card.appendChild(cr);
+    // Services list
+    var svcsDiv=mk("div",null);
+    B.svcs.forEach(function(s){
+      var row=mk("div","svc-pill");
+      var ico;
+      if(SVC_PHOTOS[s.id]){
+        ico="<img src='"+SVC_PHOTOS[s.id]+"' style='width:32px;height:32px;border-radius:8px;object-fit:cover;flex-shrink:0'/>";
+      } else {
+        ico="<div style='width:32px;height:32px;border-radius:8px;background:var(--gp);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0'>"+s.ico+"</div>";
+      }
+      row.innerHTML=ico+
+        "<div style='flex:1;margin-left:10px'><div style='font-size:13px;font-weight:600;color:#2d2620'>"+s.name+"</div>"+
+        "<div style='font-size:11px;color:#9c8f82'>"+fmtDur(s.dur)+"</div></div>"+
+        "<div style='font-family:Playfair Display,Georgia,serif;font-size:16px;font-weight:600;color:#2d2620'>$"+s.price+"</div>";
+      svcsDiv.appendChild(row);
     });
+    card.appendChild(svcsDiv);
+    var totRow=mk("div","total-row");
+    totRow.innerHTML="<div style='font-size:12px;font-weight:600;color:#9c8f82'>TOTAL &mdash; "+fmtDur(totalDur())+"</div>"+
+      "<div style='font-family:Playfair Display,Georgia,serif;font-size:20px;font-weight:600;color:#2d2620'>$"+totalPrice()+"</div>";
+    card.appendChild(totRow);
     bd.appendChild(card);
+    var detCard=mk("div","cc");
+    [{ico:"&#9997;",l:"Esthetician",v:B.stf?B.stf.name:"First available"},{ico:"&#128197;",l:"Date &amp; Time",v:fmtD(B.date)+" at "+B.time},{ico:"&#128100;",l:"Name",v:B.name},{ico:"&#128222;",l:"Contact",v:B.phone||B.email}].forEach(function(r){
+      var cr=mk("div","cr");cr.innerHTML="<div class='ci'>"+r.ico+"</div><div><div class='cl'>"+r.l+"</div><div class='cv'>"+r.v+"</div></div>";detCard.appendChild(cr);
+    });
+    bd.appendChild(detCard);
     bd.appendChild(mk("div","nb",CFG.cancellationNote));
     bd.appendChild(mkBtn("bg","Request Appointment &#10003;",bSub));
     bd.appendChild(mkBtn("gh","&#8592; Edit info",bBk));
 
+  // STEP 5: Success
   } else {
     var fn=B.name.split(" ")[0]||"there";
     var ok=mk("div","ok");
-    ok.innerHTML="<div style='font-size:52px;margin-bottom:14px'>&#127800;</div><div class='ot'>You're all set, <span class='onh'>"+fn+"</span>!</div><div class='om'>Your request for <strong>"+B.svc.name+"</strong> on "+fmtD(B.date)+" at "+B.time+" has been sent. We will confirm within 24 hours by "+(B.phone?"text":"email")+".</div>";
+    var svcNames=B.svcs.map(function(s){return s.name;}).join(", ");
+    ok.innerHTML="<div style='font-size:52px;margin-bottom:14px'>&#127800;</div>"+
+      "<div class='ot'>You're all set, <span class='onh'>"+fn+"</span>!</div>"+
+      "<div class='om'>Your request for <strong>"+svcNames+"</strong> on "+fmtD(B.date)+
+      " at "+B.time+" has been sent. We will confirm within 24 hours by "+(B.phone?"text":"email")+".</div>";
     var calBtn=mk("button","cal-btn","&#128197;  Add to Calendar");
     calBtn.onclick=function(){
       var dt=(B.date||today()).replace(/-/g,"");
-      var url="https://calendar.google.com/calendar/r/eventedit?text=esthetique+"+encodeURIComponent(B.svc.name)+"&dates="+dt+"T"+toHHMM(B.time)+"/"+dt+"T"+toHHMM(B.time,60)+"&details=Appointment+at+esthetique+Studio,+Jonesboro,+AR";
+      var url="https://calendar.google.com/calendar/r/eventedit?text=esthetique+Appointment&dates="+
+        dt+"T"+toHHMM(B.time)+"/"+dt+"T"+toHHMM(B.time,totalDur())+
+        "&details="+encodeURIComponent(svcNames)+"+at+esthetique+Studio,+Jonesboro,+AR";
       window.open(url,"_blank");
     };
     ok.appendChild(calBtn);
@@ -335,15 +471,30 @@ function renderBook(){
   }
 }
 
-function bSvc(id){B.svc=SVC.find(function(s){return s.id===id;});B.step=1;activeCat="All";fade(render);}
-function bStf(id){B.stf=id?STF.find(function(m){return m.id===id;}):null;B.date=B.date||today();B.step=2;fade(render);}
+function bStf(id){
+  B.stf=id?STF.find(function(m){return m.id===id;}):null;
+  B.svcs=[];B.date=B.date||today();B.step=1;activeCat="All";fade(render);
+}
+function bToggleSvc(id){
+  var idx=B.svcs.findIndex(function(s){return s.id===id;});
+  if(idx>=0) B.svcs.splice(idx,1);
+  else {
+    var svc=SVC.find(function(s){return s.id===id;});
+    if(svc) B.svcs.push(svc);
+  }
+  renderBook();
+}
 function bTime(t){B.time=t;var tb=el("tbtn");if(tb)tb.disabled=false;renderBook();}
 function bNx(){B.step++;fade(render);}
-function bBk(){B.step=Math.max(0,B.step-1);activeCat="All";fade(render);}
+function bBk(){
+  B.step=Math.max(0,B.step-1);
+  if(B.step===1)B.time=null; // reset time if going back
+  activeCat="All";fade(render);
+}
 function bSub(){B.step=5;fade(render);}
 function chkB(){var b=el("ibtn");if(b)b.disabled=!(B.name&&(B.phone||B.email));}
 
-// ── WAITLIST ──────────────────────────────────────────────────────────────────
+// ── WAITLIST FLOW ─────────────────────────────────────────────────────────────
 function renderWL(){
   drawSteps();
   var bd=el("bd");bd.innerHTML="";
@@ -352,11 +503,25 @@ function renderWL(){
   if(W.step===0){
     bd.appendChild(mk("div","sh","Join the waitlist"));
     bd.appendChild(mk("div","ss","Get notified the moment a spot opens"));
-    var wb=mk("div","wb");wb.innerHTML="<div class='wbt'>&#128203; How it works</div><div class='wbx'>When an appointment is cancelled we immediately reach out to everyone on the waitlist. First to confirm claims the spot!</div>";
+    var wb=mk("div","wb");wb.innerHTML="<div class='wbt'>&#128203; How it works</div><div class='wbx'>When an appointment is cancelled we immediately reach out to everyone on the waitlist for that service. First to confirm claims the spot!</div>";
     bd.appendChild(wb);
-    bd.appendChild(mkCatTabs(renderWL));
-    var filtered2=activeCat==="All"?SVC:SVC.filter(function(s){return s.cat===activeCat;});
-    bd.appendChild(mkSvcCards(filtered2,W.svc&&W.svc.id,wSvc));
+    bd.appendChild(mkCatTabs(SVC,renderWL));
+    var filtWL=activeCat==="All"?SVC:SVC.filter(function(s){return s.cat===activeCat;});
+    // Single select for waitlist
+    var f=document.createDocumentFragment();
+    filtWL.forEach(function(s){
+      var d=mk("div","sc"+(W.svc&&W.svc.id===s.id?" sel":""));
+      var imgHtml=SVC_PHOTOS[s.id]
+        ?"<div class='si'><img src='"+SVC_PHOTOS[s.id]+"' alt='"+s.name+"'/></div>"
+        :"<div class='si'>"+s.ico+"</div>";
+      var popHtml=s.popular?"<span class='pop'>Popular</span>":"";
+      d.innerHTML=imgHtml+
+        "<div style='flex:1'><div class='sn'>"+s.name+popHtml+"</div><div class='sm'>"+fmtDur(s.dur)+"</div></div>"+
+        "<div class='sp'>$"+s.price+"</div>";
+      d.onclick=(function(svc){return function(){W.svc=svc;W.step=1;activeCat="All";fade(render);};})(s);
+      f.appendChild(d);
+    });
+    bd.appendChild(f);
 
   } else if(W.step===1){
     bd.appendChild(mk("div","sh","Your availability"));
@@ -371,13 +536,27 @@ function renderWL(){
     });
     bd.appendChild(dg);
     var lb4=mk("label","lb","Preferred esthetician");lb4.style.marginTop="0";bd.appendChild(lb4);
-    bd.appendChild(mkStfCards(W.stf&&W.stf.id,wStf,W.svc));
+    // Staff cards for waitlist
+    var f2=document.createDocumentFragment();
+    var n2=mk("div","tc"+(W.stf===null?" sel":""));
+    n2.innerHTML="<div class='av' style='background:var(--gp);color:var(--gd);font-size:20px'>&#127922;</div><div><div class='tn'>No preference</div><div class='tr'>Any available esthetician</div></div>";
+    n2.onclick=function(){W.stf=null;renderWL();};f2.appendChild(n2);
+    STF.forEach(function(m){
+      var d2=mk("div","tc"+(W.stf&&W.stf.id===m.id?" sel":""));
+      var avHtml2=STAFF_PHOTOS[m.id]
+        ?"<div class='av'><img src='"+STAFF_PHOTOS[m.id]+"' alt='"+m.name+"'/></div>"
+        :"<div class='av' style='background:"+m.color+"'>"+m.init+"</div>";
+      d2.innerHTML=avHtml2+"<div><div class='tn'>"+m.name+"</div><div class='tr'>"+m.role+"</div></div>";
+      d2.onclick=(function(stf){return function(){W.stf=stf;renderWL();};})(m);
+      f2.appendChild(d2);
+    });
+    bd.appendChild(f2);
     var lb5=mk("label","lb","How soon?");lb5.style.marginTop="12px";bd.appendChild(lb5);
     var pg2=mk("div","pg2");
     [["asap","ASAP","First available opening"],["week","This week","Within 7 days"],["month","This month","Within 30 days"],["flex","Flexible","No rush"]].forEach(function(p){
       var pc=mk("div","pc"+(W.pri===p[0]?" sel":""));
       pc.innerHTML="<div class='pl'>"+p[1]+"</div><div class='px'>"+p[2]+"</div>";
-      pc.onclick=(function(pri){return function(){wPri(pri);};})(p[0]);
+      pc.onclick=(function(pri){return function(){W.pri=pri;renderWL();};})(p[0]);
       pg2.appendChild(pc);
     });
     bd.appendChild(pg2);
@@ -395,26 +574,31 @@ function renderWL(){
       fw.appendChild(inp);bd.appendChild(fw);
     });
     var lb6=mk("label","lb","Anything we should know?");lb6.style.marginTop="4px";bd.appendChild(lb6);
-    var ta=document.createElement("textarea");ta.className="fa";ta.placeholder="Preferred time of day, skin concerns...";ta.value=W.notes;ta.maxLength=200;
-    var cc2=mk("div","char-count","0 / 200");
-    ta.oninput=function(){W.notes=this.value;cc2.textContent=this.value.length+" / 200";};
-    bd.appendChild(ta);bd.appendChild(cc2);
+    var ta2=document.createElement("textarea");ta2.className="fa";ta2.placeholder="Preferred time of day, skin concerns...";ta2.value=W.notes;ta2.maxLength=200;
+    var cc3=mk("div","char-count","0 / 200");
+    ta2.oninput=function(){W.notes=this.value;cc3.textContent=this.value.length+" / 200";};
+    bd.appendChild(ta2);bd.appendChild(cc3);
     bd.appendChild(mk("div","nb","&#128241; We will text or email you the moment a spot opens. First to reply gets it!"));
-    var wb2=mkBtn("bg bw","Review &amp; Join &#8594;",function(){if(W.name&&(W.phone||W.email))wNx();});wb2.id="wibtn";wb2.disabled=!(W.name&&(W.phone||W.email));bd.appendChild(wb2);
+    var wb3=mkBtn("bg bw","Review &amp; Join &#8594;",function(){if(W.name&&(W.phone||W.email))wNx();});
+    wb3.id="wibtn";wb3.disabled=!(W.name&&(W.phone||W.email));bd.appendChild(wb3);
     bd.appendChild(mkBtn("gh","&#8592; Back",wBk));
 
   } else if(W.step===3){
     var ps={asap:"ASAP",week:"This week",month:"This month",flex:"Flexible"};
     bd.appendChild(mk("div","sh","Review your request"));
-    bd.appendChild(mk("div",null,"<div style='height:8px'></div>"));
-    var card2=mk("div","cc");
-    var cs2=mk("div","cs");
-    cs2.innerHTML="<div style='width:42px;height:42px;border-radius:12px;background:var(--gp);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0'>"+W.svc.ico+"</div><div><div class='cv' style='font-size:14px'>"+W.svc.name+"</div><div class='cl'>"+W.svc.dur+" &mdash; $"+W.svc.price+"</div></div>";
-    card2.appendChild(cs2);
-    [{ico:"&#128197;",l:"Available days",v:dayStr},{ico:"&#9997;",l:"Preference",v:W.stf?W.stf.name:"Any esthetician"},{ico:"&#9889;",l:"Priority",v:ps[W.pri]},{ico:"&#128100;",l:"Name",v:W.name},{ico:"&#128222;",l:"Contact",v:W.phone||W.email}].forEach(function(r){
-      var cr=mk("div","cr");cr.innerHTML="<div class='ci'>"+r.ico+"</div><div><div class='cl'>"+r.l+"</div><div class='cv'>"+r.v+"</div></div>";card2.appendChild(cr);
+    bd.appendChild(mk("div",null,"<div style='height:6px'></div>"));
+    var card3=mk("div","cc");
+    var cs3=mk("div","svc-pill");
+    var ico3=SVC_PHOTOS[W.svc.id]
+      ?"<img src='"+SVC_PHOTOS[W.svc.id]+"' style='width:32px;height:32px;border-radius:8px;object-fit:cover;flex-shrink:0'/>"
+      :"<div style='width:32px;height:32px;border-radius:8px;background:var(--gp);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0'>"+W.svc.ico+"</div>";
+    cs3.innerHTML=ico3+"<div style='flex:1;margin-left:10px'><div style='font-size:13px;font-weight:600;color:#2d2620'>"+W.svc.name+"</div><div style='font-size:11px;color:#9c8f82'>"+fmtDur(W.svc.dur)+"</div></div><div style='font-size:16px;font-weight:600;color:#2d2620'>$"+W.svc.price+"</div>";
+    card3.appendChild(cs3);
+    var cr5s=[{ico:"&#128197;",l:"Available days",v:dayStr},{ico:"&#9997;",l:"Preference",v:W.stf?W.stf.name:"Any esthetician"},{ico:"&#9889;",l:"Priority",v:ps[W.pri]},{ico:"&#128100;",l:"Name",v:W.name},{ico:"&#128222;",l:"Contact",v:W.phone||W.email}];
+    cr5s.forEach(function(r){
+      var cr=mk("div","cr");cr.innerHTML="<div class='ci'>"+r.ico+"</div><div><div class='cl'>"+r.l+"</div><div class='cv'>"+r.v+"</div></div>";card3.appendChild(cr);
     });
-    bd.appendChild(card2);
+    bd.appendChild(card3);
     bd.appendChild(mk("div","nb","When a cancellation matches your preferences we will contact you right away. Reply any time to remove yourself from the list."));
     bd.appendChild(mkBtn("bg bw","Join Waitlist &#10003;",wSub));
     bd.appendChild(mkBtn("gh","&#8592; Edit",wBk));
@@ -424,17 +608,18 @@ function renderWL(){
     var wnum=Math.floor(Math.random()*3)+2;
     var ps2={asap:"ASAP",week:"This week",month:"This month",flex:"Flexible"};
     var ok2=mk("div","ok");
-    ok2.innerHTML="<div class='wnum'>"+wnum+"</div><div class='ot'>You're on the list, <span class='onh'>"+wf+"</span>!</div><div class='eta-badge'>"+ETA_MAP[W.pri]+"</div><div class='om'>You're #"+wnum+" for <strong>"+W.svc.name+"</strong>. We will contact "+(W.phone||W.email)+" the moment a spot opens. First to reply gets it!</div><div class='ws2'><div class='wst'>&#128203; Your details</div><div class='wsb'>"+W.svc.name+" &middot; $"+W.svc.price+"<br>"+dayStr+" &middot; "+(W.stf?W.stf.name:"Any esthetician")+"<br>Priority: "+ps2[W.pri]+"</div></div>";
+    ok2.innerHTML="<div style='width:58px;height:58px;border-radius:50%;background:var(--gp);display:flex;align-items:center;justify-content:center;font-family:Playfair Display,Georgia,serif;font-size:26px;font-weight:600;color:var(--gd);margin:0 auto 14px'>"+wnum+"</div>"+
+      "<div class='ot'>You're on the list, <span class='onh'>"+wf+"</span>!</div>"+
+      "<div class='eta-badge'>"+ETA_MAP[W.pri]+"</div>"+
+      "<div class='om'>You're #"+wnum+" for <strong>"+W.svc.name+"</strong>. We will contact "+(W.phone||W.email)+" the moment a spot opens. First to reply gets it!</div>"+
+      "<div class='ws2'><div class='wst'>&#128203; Your details</div><div class='wsb'>"+W.svc.name+" &middot; $"+W.svc.price+"<br>"+dayStr+" &middot; "+(W.stf?W.stf.name:"Any esthetician")+"<br>Priority: "+ps2[W.pri]+"</div></div>";
     ok2.appendChild(mkBtn("bg","Book a Specific Time Instead",function(){setMode("book");}));
-    var gh2=mkBtn("gh","Join for Another Service",function(){setMode("waitlist");});
-    gh2.style.marginTop="4px";ok2.appendChild(gh2);
+    var gh3=mkBtn("gh","Join for Another Service",function(){setMode("waitlist");});
+    gh3.style.marginTop="4px";ok2.appendChild(gh3);
     bd.appendChild(ok2);
   }
 }
 
-function wSvc(id){W.svc=SVC.find(function(s){return s.id===id;});W.step=1;activeCat="All";fade(render);}
-function wStf(id){W.stf=id?STF.find(function(m){return m.id===id;}):null;renderWL();}
-function wPri(p){W.pri=p;renderWL();}
 function wDay(d){var i=W.days.indexOf(d);if(i>=0)W.days.splice(i,1);else W.days.push(d);renderWL();}
 function wNx(){W.step++;fade(render);}
 function wBk(){W.step=Math.max(0,W.step-1);activeCat="All";fade(render);}
