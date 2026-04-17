@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Book — esthétique Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--gold:#b8975a;--gold-d:#8a6e3a;--gold-p:#f0e4cc;--gold-a:#d4b07a;--bg:#f7f3ee;--surface:#faf7f3;--text:#2d2620;--muted:#9c8f82;--border:#e8e0d5;}
+html,body{width:100%;min-height:100%;background:var(--bg);font-family:'Jost',sans-serif;color:var(--text);}
+.shell{max-width:480px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(145deg,#f5e6c8 0%,#e8cd96 50%,#d4aa6a 100%);padding:env(safe-area-inset-top,24px) 24px 20px;position:relative;overflow:hidden;}
+.header::before{content:'';position:absolute;top:-60px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,255,255,.3) 0%,transparent 70%);border-radius:50%;}
+.logo{font-family:'Playfair Display',Georgia,serif;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(74,44,8,.5);margin-bottom:4px;}
+.studio{font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;color:#4a2c08;letter-spacing:-.5px;margin-bottom:2px;}
+.tagline{font-family:'Cormorant Garamond',Georgia,serif;font-size:13px;font-style:italic;color:rgba(74,44,8,.6);margin-bottom:18px;}
+.mode-toggle{display:flex;background:rgba(255,255,255,.35);border-radius:12px;padding:4px;gap:0;}
+.mode-btn{flex:1;padding:9px 10px;border:none;background:transparent;border-radius:9px;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;color:rgba(74,44,8,.55);cursor:pointer;transition:all .2s;line-height:1.2;}
+.mode-btn.active{background:#fff;color:#4a2c08;box-shadow:0 1px 6px rgba(0,0,0,.1);}
+.mode-btn span{display:block;font-size:10px;font-weight:400;opacity:.7;margin-top:2px;}
+.prog-wrap{display:flex;gap:5px;margin-top:16px;}
+.prog-bar{flex:1;height:3px;border-radius:2px;background:rgba(74,44,8,.15);transition:background .35s;}
+.prog-bar.on{background:rgba(74,44,8,.55);}
+.body{flex:1;padding:22px 20px 40px;}
+@keyframes fi{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.step-hed{font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.step-sub{font-family:'Cormorant Garamond',Georgia,serif;font-size:14px;font-style:italic;color:var(--muted);margin-bottom:20px;}
+.svc-card{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1.5px solid var(--border);border-radius:16px;margin-bottom:10px;cursor:pointer;transition:border-color .15s,transform .1s;}
+.svc-card:hover,.svc-card.sel{border-color:var(--gold);transform:translateY(-1px);}
+.svc-card.sel{background:#fffdf8;}
+.svc-icon{width:44px;height:44px;border-radius:12px;background:var(--gold-p);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.svc-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.svc-meta{font-size:11.5px;color:var(--muted);}
+.svc-price{font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:600;color:var(--text);margin-left:auto;flex-shrink:0;}
+.staff-card{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1.5px solid var(--border);border-radius:16px;margin-bottom:10px;cursor:pointer;transition:border-color .15s;}
+.staff-card:hover,.staff-card.sel{border-color:var(--gold);}
+.av{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;}
+.s-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.s-role{font-family:'Cormorant Garamond',Georgia,serif;font-size:13px;font-style:italic;color:var(--muted);}
+.spec-bd{display:inline-block;font-size:10px;font-weight:600;color:var(--gold-d);background:var(--gold-p);border-radius:20px;padding:2px 9px;margin-top:3px;}
+.time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px;}
+.time-pill{padding:11px 4px;border-radius:12px;border:1.5px solid var(--border);background:#fff;cursor:pointer;text-align:center;font-family:'Jost',sans-serif;font-size:13px;color:var(--text);transition:all .15s;}
+.time-pill:hover,.time-pill.sel{border-color:var(--gold);background:var(--gold-p);color:var(--gold-d);font-weight:600;}
+.flbl{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;display:block;}
+.fin{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:12px;font-family:'Jost',sans-serif;font-size:14px;color:var(--text);background:#fff;outline:none;transition:border-color .15s;margin-bottom:14px;display:block;}
+.fin:focus{border-color:var(--gold);}
+.fin-ta{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:12px;font-family:'Jost',sans-serif;font-size:14px;color:var(--text);background:#fff;outline:none;resize:none;height:72px;transition:border-color .15s;margin-bottom:14px;display:block;}
+.fin-ta:focus{border-color:var(--gold);}
+.conf-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px;margin-bottom:16px;}
+.conf-svc-row{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid #f0ebe3;margin-bottom:14px;}
+.c-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;}
+.c-row:last-child{margin:0;}
+.c-ico{font-size:14px;width:22px;flex-shrink:0;margin-top:2px;}
+.c-lbl{font-size:11px;color:var(--muted);margin-bottom:2px;}
+.c-val{font-size:13.5px;font-weight:500;color:var(--text);}
+.note-box{font-size:12px;color:var(--muted);line-height:1.6;padding:12px 14px;background:var(--surface);border-radius:12px;border:1px solid #f0ebe3;margin-bottom:16px;}
+.btn-gold{width:100%;padding:14px;background:linear-gradient(135deg,var(--gold),var(--gold-a));color:#fff;border:none;border-radius:13px;font-family:'Jost',sans-serif;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 3px 14px rgba(184,151,90,.35);transition:opacity .2s,transform .15s;margin-bottom:10px;}
+.btn-gold:hover{opacity:.92;}
+.btn-gold:active{transform:scale(.98);}
+.btn-gold:disabled{opacity:.4;cursor:default;box-shadow:none;}
+.btn-wl{background:linear-gradient(135deg,#6b5e52,#5a4e45);}
+.btn-ghost{width:100%;padding:11px;background:none;border:1.5px solid var(--border);border-radius:12px;font-family:'Jost',sans-serif;font-size:13px;color:var(--muted);cursor:pointer;transition:border-color .15s;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-d);}
+.wl-banner{background:linear-gradient(135deg,#f5eee3,#ede4d8);border:1px solid #d4c4a8;border-radius:16px;padding:16px 18px;margin-bottom:20px;}
+.wl-b-title{font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:600;color:#4a2c08;margin-bottom:6px;}
+.wl-b-text{font-size:12.5px;color:#7a5e3a;line-height:1.65;}
+.days-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:18px;}
+.day-pill{padding:10px 2px;border-radius:10px;border:1.5px solid var(--border);background:#fff;cursor:pointer;text-align:center;font-size:10.5px;font-weight:500;color:var(--muted);transition:all .15s;line-height:1.3;}
+.day-pill:hover,.day-pill.sel{border-color:var(--gold);background:var(--gold-p);color:var(--gold-d);}
+.day-short{display:block;font-size:9px;opacity:.7;margin-bottom:1px;}
+.pri-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;}
+.pri-card{padding:12px 14px;border-radius:12px;border:1.5px solid var(--border);background:#fff;cursor:pointer;transition:all .15s;}
+.pri-card:hover,.pri-card.sel{border-color:var(--gold);background:var(--gold-p);}
+.pri-lbl{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.pri-sub{font-size:11px;color:var(--muted);}
+.pri-card.sel .pri-lbl,.pri-card.sel .pri-sub{color:var(--gold-d);}
+.wl-num{width:56px;height:56px;border-radius:50%;background:var(--gold-p);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:600;color:var(--gold-d);margin:0 auto 14px;}
+.success{text-align:center;padding:20px 0 40px;}
+.success-bloom{font-size:56px;margin-bottom:14px;}
+.success-title{font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:600;color:var(--text);margin-bottom:8px;}
+.success-msg{font-family:'Cormorant Garamond',Georgia,serif;font-size:15.5px;color:var(--muted);line-height:1.65;margin-bottom:24px;}
+.s-name{color:var(--gold-d);font-style:italic;}
+.wl-summary{background:var(--gold-p);border-radius:14px;padding:14px 16px;margin-bottom:24px;text-align:left;}
+.wl-sum-title{font-size:12px;font-weight:600;color:var(--gold-d);margin-bottom:5px;}
+.wl-sum-text{font-size:12.5px;color:var(--gold-d);line-height:1.65;}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="header">
+    <div class="logo">esthétique Studio</div>
+    <div class="studio" id="hStudio">Book Your Visit</div>
+    <div class="tagline" id="hTagline">Palmer, MI — Online Booking</div>
+    <div class="mode-toggle">
+      <button class="mode-btn active" id="bookBtn" onclick="setMode('book')">
+        Book Appointment
+        <span>Choose a date &amp; time</span>
+      </button>
+      <button class="mode-btn" id="wlBtn" onclick="setMode('waitlist')">
+        Join Waitlist
+        <span>Get notified of openings</span>
+      </button>
+    </div>
+    <div class="prog-wrap" id="prog"></div>
+  </div>
+  <div class="body" id="body"></div>
+</div>
+<script>
+// ── Load config from staff app (shared localStorage) ──────────────────────────
+var RAW_CFG = null;
+try { var _s=localStorage.getItem('esth-public-config'); if(_s) RAW_CFG=JSON.parse(_s); } catch(e){}
+var CFG = RAW_CFG || {
+  enabled:true,
+  studioName:'esthétique Studio',
+  tagline:'Palmer, MI — Online Booking',
+  welcomeMsg:'Book your appointment online',
+  cancellationNote:''+CFG.cancellationNote+'',
+  timeSlots:['9:00 AM','9:30 AM','10:00 AM','10:30 AM','11:00 AM','11:30 AM','1:00 PM','1:30 PM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM'],
+  enabledServices:['s1','s2','s3','s4','s5','s6','s7','s8'],
+  enabledStaff:['JT','ML','CB']
+};
+
+// ── Service & staff data (icons pulled from staff app services if available) ───
+var ALL_SERVICES=[
+  {id:'s1',name:'Hydrafacial',cat:'Facial',dur:'60 min',price:145,icon:'&#128167;',spec:['JT']},
+  {id:'s2',name:'Custom Facial',cat:'Facial',dur:'75 min',price:120,icon:'&#10024;',spec:['JT','ML']},
+  {id:'s3',name:'Signature Facial',cat:'Facial',dur:'60 min',price:130,icon:'&#127800;',spec:['ML']},
+  {id:'s4',name:'Chemical Peel',cat:'Facial',dur:'60 min',price:110,icon:'&#127807;',spec:['JT']},
+  {id:'s5',name:'Microdermabrasion',cat:'Facial',dur:'60 min',price:100,icon:'&#128142;',spec:['ML']},
+  {id:'s6',name:'Lash Lift & Tint',cat:'Lash & Brow',dur:'45 min',price:95,icon:'&#128065;',spec:['CB']},
+  {id:'s7',name:'Brow Lamination',cat:'Lash & Brow',dur:'45 min',price:75,icon:'&#127912;',spec:['CB']},
+  {id:'s8',name:'Back Facial',cat:'Body',dur:'60 min',price:90,icon:'&#127802;',spec:['ML']},
+];
+
+// Try to sync prices from staff app's services
+try {
+  var _svcs=localStorage.getItem('esth-services');
+  if(_svcs){
+    var parsed=JSON.parse(_svcs);
+    parsed.forEach(function(s){
+      var match=ALL_SERVICES.find(function(x){return x.id===s.id;});
+      if(match){match.price=s.price;match.dur=s.duration+'min';match.name=s.name;}
+    });
+  }
+} catch(e){}
+
+var SERVICES=ALL_SERVICES.filter(function(s){return (CFG.enabledServices||[]).includes(s.id);});
+var ALL_STAFF=[
+  {id:'JT',name:'Jadyn Tippitt',role:'Lead Esthetician & Owner',color:'#b8975a',init:'JT'},
+  {id:'ML',name:'Megan Lamb',role:'Esthetician & Owner',color:'#7a9e87',init:'ML'},
+  {id:'CB',name:'Cassandra Bastian',role:'Esthetician',color:'#a898c8',init:'CB'},
+];
+var STAFF=ALL_STAFF.filter(function(m){return (CFG.enabledStaff||[]).includes(m.id);});
+var TIMES=CFG.timeSlots||['9:00 AM','10:00 AM','11:00 AM','1:00 PM','2:00 PM','3:00 PM'];
+var DAYS=[{l:'Monday',s:'Mon',k:'M'},{l:'Tuesday',s:'Tue',k:'T'},{l:'Wednesday',s:'Wed',k:'W'},{l:'Thursday',s:'Thu',k:'T'},{l:'Friday',s:'Fri',k:'F'},{l:'Saturday',s:'Sat',k:'Sa'},{l:'Sunday',s:'Sun',k:'Su'}];
+
+var mode='book';
+var B={step:0,svc:null,staff:null,date:'',time:null,name:'',phone:'',email:'',notes:''};
+var W={step:0,svc:null,staff:null,priority:'asap',days:[],name:'',phone:'',email:'',notes:''};
+
+function today(){return new Date().toISOString().split('T')[0];}
+function fmtDate(d){
+  if(!d) return '';
+  try{return new Date(d+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});}
+  catch(e){return d;}
+}
+function setMode(m){
+  mode=m;
+  document.getElementById('bookBtn').className='mode-btn'+(m==='book'?' active':'');
+  document.getElementById('wlBtn').className='mode-btn'+(m==='waitlist'?' active':'');
+  B={step:0,svc:null,staff:null,date:'',time:null,name:'',phone:'',email:'',notes:''};
+  W={step:0,svc:null,staff:null,priority:'asap',days:[],name:'',phone:'',email:'',notes:''};
+  fade(render);
+}
+function setProgs(total,done){
+  var p=document.getElementById('prog'),h='';
+  for(var i=0;i<total;i++) h+='<div class="prog-bar'+(i<done?' on':'')+'"></div>';
+  p.innerHTML=h;
+}
+function fade(fn){
+  var body=document.getElementById('body');
+  body.style.cssText='opacity:0;transform:translateY(8px);transition:opacity .18s,transform .18s';
+  setTimeout(function(){fn();body.style.cssText='opacity:1;transform:translateY(0);transition:opacity .22s,transform .22s';},180);
+}
+function cats(list){
+  var seen={},out=[];
+  list.forEach(function(s){if(!seen[s.cat]){seen[s.cat]=1;out.push(s.cat);}});
+  return out;
+}
+function svcCards(list,selId,clickFn){
+  var h='';
+  list.forEach(function(s){
+    h+='<div class="svc-card'+(selId&&selId===s.id?' sel':'')+'" onclick="'+clickFn+'(\''+s.id+'\')">'+
+      '<div class="svc-icon">'+s.icon+'</div>'+
+      '<div style="flex:1"><div class="svc-name">'+s.name+'</div><div class="svc-meta">'+s.dur+' &mdash; '+s.cat+'</div></div>'+
+      '<div class="svc-price">$'+s.price+'</div></div>';
+  });
+  return h;
+}
+function staffCards(selId,clickFn,highlightSvc){
+  var h='<div class="staff-card'+(selId===null?' sel':'')+'" onclick="'+clickFn+'(null)">'+
+    '<div class="av" style="background:var(--gold-p);color:var(--gold-d);font-size:18px">&#127922;</div>'+
+    '<div><div class="s-name">No preference</div><div class="s-role">First available esthetician</div></div></div>';
+  STAFF.forEach(function(m){
+    var sp=highlightSvc&&highlightSvc.spec.includes(m.id);
+    h+='<div class="staff-card'+(selId===m.id?' sel':'')+'" onclick="'+clickFn+'(\''+m.id+'\')">'+
+      '<div class="av" style="background:'+m.color+'">'+m.init+'</div>'+
+      '<div><div class="s-name">'+m.name+'</div>'+
+      (sp?'<div class="spec-bd">Specializes in this</div>':'<div class="s-role">'+m.role+'</div>')+
+      '</div></div>';
+  });
+  return h;
+}
+
+/* ── BOOKING ── */
+function renderBook(){
+  setProgs(5,B.step+1);
+  var body=document.getElementById('body'),h='';
+  if(B.step===0){
+    h='<div class="step-hed">What can we do for you?</div><div class="step-sub">Select a service to get started</div>';
+    cats(SERVICES).forEach(function(cat,ci){
+      h+='<label class="flbl" style="margin-top:'+(ci?'16px':'0')+'">'+cat+'</label>';
+      h+=svcCards(SERVICES.filter(function(s){return s.cat===cat;}),B.svc&&B.svc.id,'bPickSvc');
+    });
+  } else if(B.step===1){
+    h='<div class="step-hed">Your esthetician</div><div class="step-sub">Or let us match you with first available</div>';
+    h+=staffCards(B.staff&&B.staff.id,'bPickStaff',B.svc);
+    h+='<div style="height:12px"></div><button class="btn-ghost" onclick="bBack()">&#8592; Back</button>';
+  } else if(B.step===2){
+    h='<div class="step-hed">Date &amp; time</div><div class="step-sub">Pick your preferred slot</div>'+
+      '<label class="flbl">Date</label>'+
+      '<input type="date" class="fin" value="'+(B.date||today())+'" min="'+today()+'" oninput="B.date=this.value">'+
+      '<label class="flbl">Available times</label><div class="time-grid">';
+    TIMES.forEach(function(t){
+      h+='<div class="time-pill'+(B.time===t?' sel':'')+'" onclick="bPickTime(\''+t+'\')">'+t+'</div>';
+    });
+    h+='</div><button class="btn-gold" id="tbtn" '+(B.time?'':'disabled')+' onclick="if(B.time)bNext()">Continue &#8594;</button>'+
+      '<button class="btn-ghost" onclick="bBack()">&#8592; Back</button>';
+  } else if(B.step===3){
+    h='<div class="step-hed">Your information</div><div class="step-sub">We\'ll send your confirmation here</div>'+
+      '<label class="flbl">Full Name</label><input class="fin" placeholder="Jane Doe" value="'+B.name+'" oninput="B.name=this.value;chkB()">'+
+      '<label class="flbl">Phone</label><input class="fin" type="tel" placeholder="(555) 555-0100" value="'+B.phone+'" oninput="B.phone=this.value;chkB()">'+
+      '<label class="flbl">Email</label><input class="fin" type="email" placeholder="jane@email.com" value="'+B.email+'" oninput="B.email=this.value;chkB()">'+
+      '<label class="flbl">Notes (optional)</label><textarea class="fin-ta" placeholder="Allergies, skin concerns, or questions..." oninput="B.notes=this.value">'+B.notes+'</textarea>'+
+      '<button class="btn-gold" id="ibtn" '+(B.name&&(B.phone||B.email)?'':'disabled')+' onclick="if(B.name&&(B.phone||B.email))bNext()">Review Booking &#8594;</button>'+
+      '<button class="btn-ghost" onclick="bBack()">&#8592; Back</button>';
+  } else if(B.step===4){
+    h='<div class="step-hed">Confirm your booking</div><div style="height:10px"></div>'+
+      '<div class="conf-card">'+
+        '<div class="conf-svc-row">'+
+          '<div style="width:42px;height:42px;border-radius:12px;background:var(--gold-p);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">'+B.svc.icon+'</div>'+
+          '<div><div class="c-val">'+B.svc.name+'</div><div class="c-lbl">'+B.svc.dur+' &mdash; $'+B.svc.price+'</div></div>'+
+        '</div>'+
+        '<div class="c-row"><div class="c-ico">&#128197;</div><div><div class="c-lbl">Date &amp; Time</div><div class="c-val">'+fmtDate(B.date)+' at '+B.time+'</div></div></div>'+
+        '<div class="c-row"><div class="c-ico">&#9997;</div><div><div class="c-lbl">Esthetician</div><div class="c-val">'+(B.staff?B.staff.name:'First available')+'</div></div></div>'+
+        '<div class="c-row"><div class="c-ico">&#128100;</div><div><div class="c-lbl">Name</div><div class="c-val">'+B.name+'</div></div></div>'+
+        '<div class="c-row"><div class="c-ico">&#128222;</div><div><div class="c-lbl">Contact</div><div class="c-val">'+(B.phone||B.email)+'</div></div></div>'+
+      '</div>'+
+      '<div class="note-box">By booking you agree to our cancellation policy &mdash; 24 hour notice required. Late cancellations may incur a fee.</div>'+
+      '<button class="btn-gold" onclick="bSubmit()">Request Appointment &#10003;</button>'+
+      '<button class="btn-ghost" onclick="bBack()">&#8592; Edit info</button>';
+  } else if(B.step===5){
+    var first=B.name.split(' ')[0]||'there';
+    h='<div class="success">'+
+      '<div class="success-bloom">&#127800;</div>'+
+      '<div class="success-title">You\'re all set, <span class="s-name">'+first+'</span>!</div>'+
+      '<div class="success-msg">Your request for <strong>'+B.svc.name+'</strong> on '+fmtDate(B.date)+' at '+B.time+' has been sent to esthétique Studio. We\'ll confirm within 24 hours via '+(B.phone?'text':'email')+'.</div>'+
+      '<button class="btn-gold" onclick="setMode(\'book\')">Book Another Appointment</button>'+
+      '<div style="margin-top:14px;font-family:\'Cormorant Garamond\',Georgia,serif;font-size:14px;font-style:italic;color:var(--muted);text-align:center">We can\'t wait to see you &#10024;</div></div>';
+  }
+  body.innerHTML=h;
+}
+function bPickSvc(id){B.svc=SERVICES.find(function(s){return s.id===id;});B.step=1;fade(render);}
+function bPickStaff(id){B.staff=id?STAFF.find(function(m){return m.id===id;}):null;B.date=B.date||today();B.step=2;fade(render);}
+function bPickTime(t){B.time=t;var btn=document.getElementById('tbtn');if(btn)btn.disabled=false;// Apply CFG to header
+try{
+  var hs=document.getElementById('hStudio');
+  var ht=document.getElementById('hTagline');
+  if(hs) hs.textContent=CFG.welcomeMsg||'Book Your Visit';
+  if(ht) ht.textContent=CFG.tagline||'Online Booking';
+}catch(e){}
+
+// Show offline message if booking disabled
+if(!CFG.enabled){
+  document.getElementById('body').innerHTML='<div style="text-align:center;padding:48px 24px">'+
+    '<div style="font-size:52px;margin-bottom:16px">&#128274;</div>'+
+    '<div style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:600;color:#2d2620;margin-bottom:10px">Online booking is currently unavailable</div>'+
+    '<div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:#9c8f82;line-height:1.65">Please call us to schedule your appointment. We look forward to seeing you!</div>'+
+  '</div>';
+  document.getElementById('prog').style.display='none';
+  document.querySelector('.mode-toggle').style.display='none';
+} else {
+  render();
+}}
+function bNext(){B.step++;fade(render);}
+function bBack(){B.step=Math.max(0,B.step-1);fade(render);}
+function bSubmit(){B.step=5;fade(render);}
+function chkB(){var b=document.getElementById('ibtn');if(b)b.disabled=!(B.name&&(B.phone||B.email));}
+
+/* ── WAITLIST ── */
+function renderWaitlist(){
+  setProgs(4,W.step+1);
+  var body=document.getElementById('body'),h='';
+  if(W.step===0){
+    h='<div class="step-hed">Join the waitlist</div><div class="step-sub">We\'ll contact you the moment a spot opens</div>'+
+      '<div class="wl-banner">'+
+        '<div class="wl-b-title">&#128203; How the waitlist works</div>'+
+        '<div class="wl-b-text">When an appointment is cancelled, we reach out to everyone on the waitlist for that service. The first client to confirm claims the spot &mdash; so make sure we have your best contact info!</div>'+
+      '</div>'+
+      '<label class="flbl">Which service are you waiting for?</label>';
+    cats(SERVICES).forEach(function(cat,ci){
+      h+='<label class="flbl" style="margin-top:'+(ci?'14px':'0')+'">'+cat+'</label>';
+      h+=svcCards(SERVICES.filter(function(s){return s.cat===cat;}),W.svc&&W.svc.id,'wPickSvc');
+    });
+  } else if(W.step===1){
+    h='<div class="step-hed">Your availability</div><div class="step-sub">This helps us match you to the right opening</div>'+
+      '<label class="flbl">Which days work for you?</label>'+
+      '<div class="days-grid">';
+    DAYS.forEach(function(d){
+      var sel=W.days.indexOf(d.l)>=0;
+      h+='<div class="day-pill'+(sel?' sel':'')+'" onclick="wToggleDay(\''+d.l+'\')">'+
+        '<span class="day-short">'+d.k+'</span>'+d.s+'</div>';
+    });
+    h+='</div>'+
+      '<label class="flbl">Preferred esthetician</label>';
+    h+=staffCards(W.staff&&W.staff.id,'wPickStaff',W.svc);
+    h+='<label class="flbl" style="margin-top:18px">How soon do you need it?</label>'+
+      '<div class="pri-grid">'+
+        [['asap','ASAP','First opening, any time'],['week','Within a week','Next 7 days'],['month','This month','Next 30 days'],['flexible','Flexible','No rush']].map(function(p){
+          return '<div class="pri-card'+(W.priority===p[0]?' sel':'')+'" onclick="wPickPri(\''+p[0]+'\')">'+
+            '<div class="pri-lbl">'+p[1]+'</div><div class="pri-sub">'+p[2]+'</div></div>';
+        }).join('')+
+      '</div>'+
+      '<button class="btn-gold btn-wl" onclick="wNext()">Continue &#8594;</button>'+
+      '<button class="btn-ghost" onclick="wBack()">&#8592; Back</button>';
+  } else if(W.step===2){
+    h='<div class="step-hed">Contact info</div><div class="step-sub">We\'ll reach out the moment a spot opens</div>'+
+      '<label class="flbl">Full Name</label><input class="fin" placeholder="Jane Doe" value="'+W.name+'" oninput="W.name=this.value;chkW()">'+
+      '<label class="flbl">Phone (strongly recommended)</label><input class="fin" type="tel" placeholder="(555) 555-0100" value="'+W.phone+'" oninput="W.phone=this.value;chkW()">'+
+      '<label class="flbl">Email</label><input class="fin" type="email" placeholder="jane@email.com" value="'+W.email+'" oninput="W.email=this.value;chkW()">'+
+      '<label class="flbl">Anything we should know?</label>'+
+      '<textarea class="fin-ta" placeholder="Preferred time of day, specific concerns..." oninput="W.notes=this.value">'+W.notes+'</textarea>'+
+      '<div class="note-box" style="margin-bottom:16px">&#128241; We\'ll text or email you when an opening matches your preferences. First to confirm gets the spot &mdash; speed matters!</div>'+
+      '<button class="btn-gold btn-wl" id="wibtn" '+(W.name&&(W.phone||W.email)?'':'disabled')+' onclick="if(W.name&&(W.phone||W.email))wNext()">Review &amp; Join &#8594;</button>'+
+      '<button class="btn-ghost" onclick="wBack()">&#8592; Back</button>';
+  } else if(W.step===3){
+    var dayStr=W.days.length?W.days.join(', '):'Any day';
+    var staffStr=W.staff?W.staff.name:'Any esthetician';
+    var prioMap={asap:'ASAP — first available',week:'Within 1 week',month:'Within 1 month',flexible:'Flexible'};
+    h='<div class="step-hed">Review your request</div><div style="height:10px"></div>'+
+      '<div class="conf-card">'+
+        '<div class="conf-svc-row">'+
+          '<div style="width:42px;height:42px;border-radius:12px;background:var(--gold-p);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">'+W.svc.icon+'</div>'+
+          '<div><div class="c-val">'+W.svc.name+'</div><div class="c-lbl">'+W.svc.dur+' &mdash; $'+W.svc.price+'</div></div>'+
+        '</div>'+
+        '<div class="c-row"><div class="c-ico">&#128197;</div><div><div class="c-lbl">Available days</div><div class="c-val">'+dayStr+'</div></div></div>'+
+        '<div class="c-row"><div class="c-ico">&#9997;</div><div><div class="c-lbl">Esthetician preference</div><div class="c-val">'+staffStr+'</div></div></div>'+
+        '<div class="c-row"><div class="c-ico">&#9889;</div><div><div class="c-lbl">Priority</div><div class="c-val">'+prioMap[W.priority]+'</div></div></div>'+
+        '<div class="c-row"><div class="c-ico">&#128100;</div><div><div class="c-lbl">Name</div><div class="c-val">'+W.name+'</div></div></div>'+
+        '<div class="c-row"><div class="c-ico">&#128222;</div><div><div class="c-lbl">Contact</div><div class="c-val">'+(W.phone||W.email)+'</div></div></div>'+
+      '</div>'+
+      '<div class="note-box">When a cancellation opens up that matches your preferences, we\'ll reach out right away. You can text us at any time to update or remove your spot.</div>'+
+      '<button class="btn-gold btn-wl" onclick="wSubmit()">Join Waitlist &#10003;</button>'+
+      '<button class="btn-ghost" onclick="wBack()">&#8592; Edit</button>';
+  } else if(W.step===4){
+    var wfirst=W.name.split(' ')[0]||'there';
+    var wlNum=Math.floor(Math.random()*3)+2;
+    var dayDisp=W.days.length?W.days.map(function(d){return d.substring(0,3);}).join(', '):'any day';
+    h='<div class="success">'+
+      '<div class="wl-num">'+wlNum+'</div>'+
+      '<div class="success-title">You\'re on the list, <span class="s-name">'+wfirst+'</span>!</div>'+
+      '<div class="success-msg">You\'re #'+wlNum+' on the waitlist for <strong>'+W.svc.name+'</strong>. The moment a spot opens that matches your availability we\'ll contact you right away.</div>'+
+      '<div class="wl-summary">'+
+        '<div class="wl-sum-title">&#128203; Your waitlist details</div>'+
+        '<div class="wl-sum-text">'+
+          W.svc.name+' &mdash; $'+W.svc.price+'<br>'+
+          'Available: '+dayDisp+'<br>'+
+          (W.staff?W.staff.name:'Any esthetician')+' &mdash; '+{asap:'ASAP',week:'Within 1 week',month:'This month',flexible:'Flexible'}[W.priority]+'<br>'+
+          'Contact: '+(W.phone||W.email)+
+        '</div>'+
+      '</div>'+
+      '<button class="btn-gold" onclick="setMode(\'book\')">Book a Specific Time Instead</button>'+
+      '<button class="btn-ghost" style="margin-top:10px" onclick="setMode(\'waitlist\')">Join Waitlist for Another Service</button></div>';
+  }
+  body.innerHTML=h;
+}
+function wPickSvc(id){W.svc=SERVICES.find(function(s){return s.id===id;});W.step=1;fade(render);}
+function wPickStaff(id){W.staff=id?STAFF.find(function(m){return m.id===id;}):null;render();}
+function wPickPri(p){W.priority=p;render();}
+function wToggleDay(day){
+  var i=W.days.indexOf(day);
+  if(i>=0) W.days.splice(i,1); else W.days.push(day);
+  render();
+}
+function wNext(){W.step++;fade(render);}
+function wBack(){W.step=Math.max(0,W.step-1);fade(render);}
+function wSubmit(){W.step=4;fade(render);}
+function chkW(){var b=document.getElementById('wibtn');if(b)b.disabled=!(W.name&&(W.phone||W.email));}
+
+function render(){
+  if(mode==='book') renderBook(); else renderWaitlist();
+}
+render();
+</script>
+</body>
+</html>
